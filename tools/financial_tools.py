@@ -137,22 +137,23 @@ def get_stock_snapshot(ticker_symbol):
         cash_flow = stock.cashflow
 
         financials = {
-            "revenue": _latest_value(income, "Total Revenue"),
-            "net_income": _latest_value(income, "Net Income"),
-            "operating_income": _latest_value(
-                income, "Operating Income"
-            ),
-            "total_assets": _latest_value(balance, "Total Assets"),
-            "shareholders_equity": _latest_value(
-                balance, "Stockholders Equity"
-            ),
-            "operating_cash_flow": _latest_value(
-                cash_flow, "Operating Cash Flow"
-            ),
-            "capital_expenditure": _latest_value(
-                cash_flow, "Capital Expenditure"
-            ),
-        }
+    "revenue": _latest_value(income, "Total Revenue"),
+    "net_income": _latest_value(income, "Net Income"),
+    "operating_income": _latest_value(
+        income, "Operating Income"
+    ),
+    "total_assets": _latest_value(balance, "Total Assets"),
+    "shareholders_equity": _latest_value(
+        balance, "Stockholders Equity"
+    ),
+    "total_debt": _latest_value(balance, "Total Debt"),
+    "operating_cash_flow": _latest_value(
+        cash_flow, "Operating Cash Flow"
+    ),
+    "capital_expenditure": _latest_value(
+        cash_flow, "Capital Expenditure"
+    ),
+}
 
         return {
             "ticker": ticker_symbol,

@@ -173,3 +173,79 @@ def test_agent_flags_unsupported_industry_comparison(monkeypatch):
         "evaluation_issues"
     ]
 
+
+def test_agent_recognizes_available_debt_data(monkeypatch):
+    """Verify available debt data reaches the report evaluator."""
+
+    financial_snapshot = {
+        "ticker": "AAPL",
+        "company_name": "Apple Inc.",
+        "currency": "USD",
+        "data_source": "Test provider",
+        "financials": {
+            "revenue": 1000,
+            "net_income": 100,
+            "operating_income": 150,
+            "total_assets": 500,
+            "shareholders_equity": 250,
+            "total_debt": 200,
+            "operating_cash_flow": 180,
+            "capital_expenditure": -40,
+        },
+        "history": {},
+        "error": None,
+    }
+
+    monkeypatch.setattr(
+        "agents.financial_data_agent.get_stock_data",
+        lambda ticker: financial_snapshot,
+    )
+
+    class FakeCompletions:
+        def create(self, **kwargs):
+            fake_json = json.dumps({
+                "strengths": [],
+                "concerns": ["The company is highly leveraged."],
+                "data_limitations": [],
+                "summary": "Test analysis",
+            })
+
+            return type(
+                "Response",
+                (),
+                {
+                    "choices": [
+                        type(
+                            "Choice",
+                            (),
+                            {
+                                "message": type(
+                                    "Message",
+                                    (),
+                                    {"content": fake_json},
+                                )()
+                            },
+                        )()
+                    ]
+                },
+            )()
+
+    agent = FinancialDataAgent.__new__(FinancialDataAgent)
+    agent.model = "test-model"
+    agent.client = type(
+        "Client",
+        (),
+        {
+            "chat": type(
+                "Chat",
+                (),
+                {"completions": FakeCompletions()},
+            )()
+        },
+    )()
+
+    result = agent.analyse("AAPL")
+
+    assert "Leverage claim lacks debt data" not in result[
+        "evaluation_issues"
+    ]

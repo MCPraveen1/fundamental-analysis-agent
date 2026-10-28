@@ -160,7 +160,9 @@ Do not make a BUY, HOLD or SELL recommendation.
                     ),
                     default=0,
                 ),
-                has_debt_data=False,
+                has_debt_data=(
+    financials.get("total_debt") is not None
+),
             )
 
             report = FinancialAnalysisReport(

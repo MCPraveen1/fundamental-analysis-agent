@@ -47,6 +47,7 @@ def _normalize_stock_data(symbol, provider, raw_data):
         "operating_income": latest_income.get("operatingIncome"),
         "total_assets": latest_balance.get("totalAssets"),
         "shareholders_equity": latest_balance.get("totalStockholdersEquity"),
+        "total_debt": latest_balance.get("totalDebt"),
         "operating_cash_flow": latest_cash_flow.get(
             "operatingCashFlow",
             latest_cash_flow.get("netCashProvidedByOperatingActivities"),
