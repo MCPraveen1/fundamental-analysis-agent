@@ -1,3 +1,5 @@
+from agents.report_evaluator import evaluate_report_claims
+
 
 def evaluate_report_claims(
     narrative,
