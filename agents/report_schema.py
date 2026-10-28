@@ -22,3 +22,4 @@ class FinancialAnalysisReport(BaseModel):
     concerns: list[str] = Field(default_factory=list)
     data_limitations: list[str] = Field(default_factory=list)
     summary: str
+    evaluation_issues: list[str] = Field(default_factory=list)

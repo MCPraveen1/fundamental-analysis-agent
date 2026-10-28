@@ -13,6 +13,8 @@ from dotenv import load_dotenv
 from groq import Groq
 from tools.stock_data_router import get_stock_data
 
+from agents.report_evaluator import evaluate_report_claims
+
 
 load_dotenv()
 
@@ -136,9 +138,29 @@ Do not make a BUY, HOLD or SELL recommendation.
             response_format={"type": "json_object"},
         )
 
+
         try:
             narrative = json.loads(
                 response.choices[0].message.content
+            )
+
+            evaluation_issues = evaluate_report_claims(
+                narrative=" ".join(
+                    narrative["strengths"]
+                    + narrative["concerns"]
+                    + narrative["data_limitations"]
+                    + [narrative["summary"]]
+                ),
+                has_industry_benchmarks=False,
+                reporting_period_count=max(
+                    (
+                        len(values)
+                        for values in snapshot.get("history", {}).values()
+                        if isinstance(values, list)
+                    ),
+                    default=0,
+                ),
+                has_debt_data=False,
             )
 
             report = FinancialAnalysisReport(
@@ -151,16 +173,21 @@ Do not make a BUY, HOLD or SELL recommendation.
                 concerns=narrative["concerns"],
                 data_limitations=narrative["data_limitations"],
                 summary=narrative["summary"],
+                evaluation_issues=evaluation_issues,
             )
 
-        except (json.JSONDecodeError, ValidationError, KeyError, TypeError) as exc:
+        except (
+            json.JSONDecodeError,
+            ValidationError,
+            KeyError,
+            TypeError,
+        ) as exc:
             return {
                 "ticker": snapshot.get("ticker"),
                 "error": f"Invalid structured analysis response: {exc}",
             }
 
         return report.model_dump()
-
 
 
 if __name__ == "__main__":
@@ -195,3 +222,10 @@ if __name__ == "__main__":
 
         print("\nSummary:")
         print(result["summary"])
+
+        print("\nEvaluation issues:")
+        if result["evaluation_issues"]:
+            for issue in result["evaluation_issues"]:
+                print(f"  - {issue}")
+        else:
+            print("  No issues detected.")
