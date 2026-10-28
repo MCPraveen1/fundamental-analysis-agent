@@ -11,6 +11,7 @@ class InvestmentMemo(BaseModel):
 
     financial_analysis: dict
     price_analysis: dict
+    news_analysis: dict = Field(default_factory=dict)
 
     key_strengths: list[str] = Field(default_factory=list)
     key_concerns: list[str] = Field(default_factory=list)

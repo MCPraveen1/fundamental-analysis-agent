@@ -47,3 +47,16 @@ def test_custom_recommendation_can_be_supplied():
     )
 
     assert memo.recommendation == "NOT_ASSESSED"
+
+
+def test_news_analysis_defaults_to_empty_dictionary():
+    memo = InvestmentMemo(
+        ticker="AAPL",
+        financial_analysis={},
+        price_analysis={},
+        overall_summary="Illustrative investment memo.",
+    )
+
+    assert memo.news_analysis == {}
+
+    

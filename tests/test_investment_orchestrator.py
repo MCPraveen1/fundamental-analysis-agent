@@ -19,10 +19,27 @@ class FakePriceAgent:
         }
 
 
-def test_orchestrator_combines_both_agent_results():
+class FakeNewsAgent:
+    def analyse(self, ticker):
+        return {
+            "ticker": ticker,
+            "provider": "Test provider",
+            "articles": [
+                {
+                    "headline": "Example company news",
+                    "url": "https://example.com/news",
+                    "evidence_status": "metadata_complete",
+                    "claims_independently_verified": False,
+                }
+            ],
+        }
+
+
+def test_orchestrator_combines_agent_results():
     orchestrator = InvestmentOrchestrator(
         financial_agent=FakeFinancialAgent(),
         price_agent=FakePriceAgent(),
+        news_agent=FakeNewsAgent(),
     )
 
     result = orchestrator.analyse("aapl")
@@ -33,6 +50,11 @@ def test_orchestrator_combines_both_agent_results():
         == "Financial analysis completed"
     )
     assert result["price_analysis"]["current_price"] == 225.50
+    assert result["news_analysis"]["provider"] == "Test provider"
+    assert result["news_analysis"]["articles"][0]["headline"] == (
+        "Example company news"
+    )
+    assert result["recommendation"] == "NOT_ASSESSED"
 
 
 def test_orchestrator_preserves_price_error():
@@ -46,6 +68,7 @@ def test_orchestrator_preserves_price_error():
     orchestrator = InvestmentOrchestrator(
         financial_agent=FakeFinancialAgent(),
         price_agent=FailingPriceAgent(),
+        news_agent=FakeNewsAgent(),
     )
 
     result = orchestrator.analyse("AAPL")
@@ -58,14 +81,53 @@ def test_orchestrator_preserves_price_error():
         result["price_analysis"]["error"]
         == "Current price is unavailable."
     )
+    assert (
+        "Price analysis: Current price is unavailable."
+        in result["risks_and_limitations"]
+    )
+    assert result["recommendation"] == "NOT_ASSESSED"
 
 
 def test_orchestrator_rejects_empty_ticker():
     orchestrator = InvestmentOrchestrator(
         financial_agent=FakeFinancialAgent(),
         price_agent=FakePriceAgent(),
+        news_agent=FakeNewsAgent(),
     )
 
     result = orchestrator.analyse("  ")
 
     assert result["error"] == "Please provide a valid stock ticker."
+
+
+def test_orchestrator_preserves_news_error():
+    class FailingNewsAgent:
+        def analyse(self, ticker):
+            return {
+                "ticker": ticker,
+                "error": "The news search request failed.",
+                "articles": [],
+            }
+
+    orchestrator = InvestmentOrchestrator(
+        financial_agent=FakeFinancialAgent(),
+        price_agent=FakePriceAgent(),
+        news_agent=FailingNewsAgent(),
+    )
+
+    result = orchestrator.analyse("AAPL")
+
+    assert (
+        result["financial_analysis"]["summary"]
+        == "Financial analysis completed"
+    )
+    assert result["price_analysis"]["current_price"] == 225.50
+    assert (
+        result["news_analysis"]["error"]
+        == "The news search request failed."
+    )
+    assert (
+        "News analysis: The news search request failed."
+        in result["risks_and_limitations"]
+    )
+    assert result["recommendation"] == "NOT_ASSESSED"
