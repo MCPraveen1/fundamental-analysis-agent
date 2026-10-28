@@ -87,14 +87,11 @@ def _normalize_stock_data(symbol, provider, raw_data):
     }
 
     return {
-        "ticker": symbol,
-        "company_name": profile.get("companyName"),
-        "currency": profile.get("currency"),
-        "financials": financials,
-        "history": history,
-        "data_source": provider,
-        "error": None,
-        "raw_data": raw_data,
+    "ticker": symbol,
+    "company_name": profile.get("companyName"),
+    "currency": profile.get("currency"),
+    "current_price": profile.get("price"),
+    "financials": financials,
     }
 
 
