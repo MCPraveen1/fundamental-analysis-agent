@@ -34,6 +34,23 @@ SYSTEM_PROMPT = """
   be established from the available data.
 """
 
+def count_reporting_periods(history):
+    """Count unique reporting periods across historical metrics."""
+    periods = set()
+
+    for records in history.values():
+        if not isinstance(records, list):
+            continue
+
+        for record in records:
+            if not isinstance(record, dict):
+                continue
+
+            period = record.get("period")
+            if period:
+                periods.add(period)
+
+    return len(periods)
 
 class FinancialDataAgent:
     """Agent that interprets financial data using a Groq LLM."""
@@ -152,14 +169,9 @@ Do not make a BUY, HOLD or SELL recommendation.
                     + [narrative["summary"]]
                 ),
                 has_industry_benchmarks=False,
-                reporting_period_count=max(
-                    (
-                        len(values)
-                        for values in snapshot.get("history", {}).values()
-                        if isinstance(values, list)
-                    ),
-                    default=0,
-                ),
+                reporting_period_count=count_reporting_periods(
+    snapshot.get("history", {})
+),
                 has_debt_data=(
     financials.get("total_debt") is not None
 ),

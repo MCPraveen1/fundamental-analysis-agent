@@ -1,7 +1,10 @@
 
 import json
 
-from agents.financial_data_agent import FinancialDataAgent
+from agents.financial_data_agent import (
+    FinancialDataAgent,
+    count_reporting_periods,
+)
 
 
 def test_agent_sends_calculated_metrics_to_llm(monkeypatch):
@@ -249,3 +252,41 @@ def test_agent_recognizes_available_debt_data(monkeypatch):
     assert "Leverage claim lacks debt data" not in result[
         "evaluation_issues"
     ]
+def test_count_reporting_periods_counts_unique_dates():
+    """Count distinct reporting dates across multiple metrics."""
+
+    history = {
+        "revenue": [
+            {"period": "2025-12-31", "value": 1000},
+            {"period": "2024-12-31", "value": 900},
+            {"period": "2023-12-31", "value": 800},
+        ],
+        "net_income": [
+            {"period": "2025-12-31", "value": 100},
+            {"period": "2024-12-31", "value": 90},
+        ],
+        "operating_cash_flow": [
+            {"period": "2025-12-31", "value": 180},
+        ],
+    }
+
+    assert count_reporting_periods(history) == 3
+
+
+def test_count_reporting_periods_ignores_missing_or_invalid_records():
+    """Ignore records without usable reporting dates."""
+
+    history = {
+        "revenue": [
+            {"period": "2025-12-31", "value": 1000},
+            {"period": None, "value": 900},
+            {"value": 800},
+            "invalid record",
+        ],
+        "net_income": None,
+        "operating_cash_flow": [
+            {"period": "2025-12-31", "value": 180},
+        ],
+    }
+
+    assert count_reporting_periods(history) == 1
