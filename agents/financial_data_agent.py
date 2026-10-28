@@ -1,10 +1,16 @@
 
 import json
 import os
+from pydantic import ValidationError
 
+from agents.report_schema import (
+    FinancialAnalysisReport,
+    FinancialMetrics,
+)
+
+from tools.financial_tools import calculate_ratios
 from dotenv import load_dotenv
 from groq import Groq
-
 from tools.stock_data_router import get_stock_data
 
 
@@ -12,31 +18,18 @@ load_dotenv()
 
 
 SYSTEM_PROMPT = """
-You are a financial data analysis specialist.
-
-Your job is to analyse the financial information supplied by a
-Python financial data tool.
-
-Rules:
-1. Use only the supplied data for company-specific numerical claims.
-2. Never invent missing financial values or reporting periods.
-3. Explain revenue, profitability, returns and free cash flow.
-4. Discuss historical trends when sufficient data is available.
-5. Distinguish observed facts from interpretations.
-6. Highlight missing data and limitations.
-7. Do not make a BUY, HOLD or SELL recommendation.
-8. Do not claim that financial data has been independently verified.
-
-Return your analysis using these sections:
-
-- Company Overview
-- Financial Strengths
-- Financial Concerns
-- Historical Trends
-- Data Limitations
-- Summary
-
-Explain your reasoning clearly and concisely.
+- Do not claim that a metric is above or below industry averages
+  unless industry benchmark data is explicitly provided.
+- Base historical trend claims only on the supplied reporting periods
+  and values.
+- Do not infer financial leverage solely from a high return on equity.
+  State what additional data would be needed.
+- Do not describe a change as a persistent trend based on only
+  two reporting periods.
+- Explain financial calculations using the supplied metrics.
+- Clearly distinguish source facts from interpretations.
+- If evidence is insufficient, state that the conclusion cannot
+  be established from the available data.
 """
 
 
@@ -80,7 +73,8 @@ class FinancialDataAgent:
                 "error": "No usable financial data was returned.",
             }
 
-        
+        financials = snapshot.get("financials", {})
+        ratios = calculate_ratios(financials)
         
         # Build a compact payload instead of sending all provider data.
         compact_snapshot = {
@@ -88,7 +82,8 @@ class FinancialDataAgent:
             "company_name": snapshot.get("company_name"),
             "currency": snapshot.get("currency"),
             "data_source": snapshot.get("data_source"),
-            "financials": snapshot.get("financials", {}),
+            "financials": financials,
+            "calculated_metrics": ratios,
             "history": {
                 "revenue": snapshot.get("history", {}).get(
                     "revenue", []
@@ -124,6 +119,7 @@ Do not make a BUY, HOLD or SELL recommendation.
 
 
 
+        
         response = self.client.chat.completions.create(
             model=self.model,
             messages=[
@@ -137,18 +133,34 @@ Do not make a BUY, HOLD or SELL recommendation.
                 },
             ],
             temperature=0.2,
+            response_format={"type": "json_object"},
         )
 
-        analysis = response.choices[0].message.content
+        try:
+            narrative = json.loads(
+                response.choices[0].message.content
+            )
 
-        return {
-            "ticker": snapshot["ticker"],
-            "company_name": snapshot.get("company_name"),
-            "currency": snapshot.get("currency"),
-            "data_source": snapshot.get("data_source"),
-            "reporting_periods": snapshot.get("reporting_periods"),
-            "analysis": analysis,
-        }
+            report = FinancialAnalysisReport(
+                ticker=snapshot["ticker"],
+                company_name=snapshot.get("company_name"),
+                currency=snapshot.get("currency"),
+                data_source=snapshot.get("data_source", "Unknown"),
+                metrics=FinancialMetrics(**ratios),
+                strengths=narrative["strengths"],
+                concerns=narrative["concerns"],
+                data_limitations=narrative["data_limitations"],
+                summary=narrative["summary"],
+            )
+
+        except (json.JSONDecodeError, ValidationError, KeyError, TypeError) as exc:
+            return {
+                "ticker": snapshot.get("ticker"),
+                "error": f"Invalid structured analysis response: {exc}",
+            }
+
+        return report.model_dump()
+
 
 
 if __name__ == "__main__":
@@ -156,11 +168,30 @@ if __name__ == "__main__":
 
     result = agent.analyse("AAPL")
 
-    print(f"\nTicker: {result.get('ticker')}")
-    print(f"Company: {result.get('company_name')}")
-
     if result.get("error"):
         print(f"\nError: {result['error']}")
     else:
-        print("\nFINANCIAL DATA AGENT ANALYSIS\n")
-        print(result["analysis"])
+        print("\nFINANCIAL ANALYSIS REPORT\n")
+        print(f"Ticker: {result.get('ticker')}")
+        print(f"Company: {result.get('company_name')}")
+        print(f"Currency: {result.get('currency')}")
+        print(f"Data source: {result.get('data_source')}")
+
+        print("\nMetrics:")
+        for name, value in result["metrics"].items():
+            print(f"  {name}: {value}")
+
+        print("\nStrengths:")
+        for item in result["strengths"]:
+            print(f"  - {item}")
+
+        print("\nConcerns:")
+        for item in result["concerns"]:
+            print(f"  - {item}")
+
+        print("\nData limitations:")
+        for item in result["data_limitations"]:
+            print(f"  - {item}")
+
+        print("\nSummary:")
+        print(result["summary"])
