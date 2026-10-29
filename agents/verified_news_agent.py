@@ -2,8 +2,9 @@
 """Evaluate the evidence quality of retrieved financial news."""
 
 from urllib.parse import urlparse
-
 from tools.news_tools import search_financial_news
+from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 
 
 class VerifiedNewsAgent:
@@ -27,6 +28,34 @@ class VerifiedNewsAgent:
             )
         except ValueError:
             return False
+    
+    @staticmethod
+    def _publication_date_issue(published_at):
+        """Return an issue message if the publication date is unusable."""
+
+        if not isinstance(published_at, str) or not published_at.strip():
+            return "Publication date is unavailable"
+
+        try:
+            publication_date = parsedate_to_datetime(published_at)
+        except (TypeError, ValueError, OverflowError):
+            try:
+                publication_date = datetime.fromisoformat(
+                    published_at.strip().replace("Z", "+00:00")
+                )
+            except (TypeError, ValueError, OverflowError):
+                return "Publication date is invalid"
+
+        if publication_date.tzinfo is None:
+            publication_date = publication_date.replace(
+                tzinfo=timezone.utc
+            )
+
+        if publication_date > datetime.now(timezone.utc):
+            return "Publication date is in the future"
+
+        return None
+    
 
     def analyse(self, ticker, max_results=5):
         """Retrieve news and assess the completeness of each article."""
@@ -70,9 +99,11 @@ class VerifiedNewsAgent:
             if not isinstance(source, str) or not source.strip():
                 issues.append("Source is unavailable")
 
-            if not published_at:
-                issues.append("Publication date is unavailable")
+            date_issue = self._publication_date_issue(published_at)
 
+            if date_issue:
+              issues.append(date_issue)
+            
             if not isinstance(content, str) or not content.strip():
                 issues.append("Article content is unavailable")
 

@@ -99,3 +99,40 @@ def test_empty_ticker_is_rejected_without_search():
 
     assert result["error"] == "Please provide a valid stock ticker."
     assert result["articles"] == []
+
+
+def test_missing_publication_date():
+    assert (
+        VerifiedNewsAgent._publication_date_issue(None)
+        == "Publication date is unavailable"
+    )
+
+
+def test_invalid_publication_date():
+    assert (
+        VerifiedNewsAgent._publication_date_issue("not-a-date")
+        == "Publication date is invalid"
+    )
+
+
+def test_future_publication_date():
+    from datetime import datetime, timedelta, timezone
+
+    future_date = (
+        datetime.now(timezone.utc) + timedelta(days=2)
+    ).isoformat()
+
+    assert (
+        VerifiedNewsAgent._publication_date_issue(future_date)
+        == "Publication date is in the future"
+    )
+
+
+def test_valid_tavily_publication_date():
+    assert (
+        VerifiedNewsAgent._publication_date_issue(
+            "Wed, 28 Oct 2026 19:07:00 GMT"
+        )
+        is None
+    )
+
