@@ -4,7 +4,9 @@
 import os
 
 import requests
+from urllib.parse import urlparse
 from dotenv import load_dotenv
+from yfinance import ticker
 
 
 load_dotenv()
@@ -81,16 +83,28 @@ def search_financial_news(ticker: str, max_results: int = 5) -> dict:
             "articles": [],
         }
 
+    
     articles = []
+
     for item in results:
         if not isinstance(item, dict):
             continue
 
+        article_url = item.get("url")
+        source = item.get("source")
+
+        if not source and isinstance(article_url, str):
+            parsed_url = urlparse(article_url)
+            hostname = parsed_url.hostname
+
+            if hostname:
+                source = hostname.removeprefix("www.")
+
         articles.append(
             {
                 "headline": item.get("title"),
-                "url": item.get("url"),
-                "source": item.get("source"),
+                "url": article_url,
+                "source": source,
                 "published_at": (
                     item.get("published_date")
                     or item.get("date")
