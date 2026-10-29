@@ -131,3 +131,35 @@ def test_orchestrator_preserves_news_error():
         in result["risks_and_limitations"]
     )
     assert result["recommendation"] == "NOT_ASSESSED"
+
+def test_orchestrator_preserves_news_quality_metadata():
+    class NewsAgentWithQualityMetadata:
+        def analyse(self, ticker):
+            return {
+                "ticker": ticker,
+                "provider": "Test provider",
+                "articles": [
+                    {
+                        "headline": "Example company news",
+                        "url": "https://example.com/news",
+                        "evidence_status": "metadata_complete",
+                        "freshness_status": "fresh",
+                        "duplicate": True,
+                        "duplicate_reasons": ["Duplicate URL"],
+                        "claims_independently_verified": False,
+                    }
+                ],
+            }
+
+    orchestrator = InvestmentOrchestrator(
+        financial_agent=FakeFinancialAgent(),
+        price_agent=FakePriceAgent(),
+        news_agent=NewsAgentWithQualityMetadata(),
+    )
+
+    result = orchestrator.analyse("AAPL")
+    article = result["news_analysis"]["articles"][0]
+
+    assert article["freshness_status"] == "fresh"
+    assert article["duplicate"] is True
+    assert article["duplicate_reasons"] == ["Duplicate URL"]
