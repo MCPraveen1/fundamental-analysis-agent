@@ -81,6 +81,23 @@ class InvestmentOrchestrator:
             )
 
         risks_and_limitations.extend(analysis_errors)
+        for article in news_result.get("articles", []):
+            if not isinstance(article, dict):
+                continue
+
+            if article.get("duplicate"):
+                reasons = article.get("duplicate_reasons", [])
+                reason_text = ", ".join(reasons) if reasons else (
+                    "duplicate article detected"
+                )
+                risks_and_limitations.append(
+                    f"News quality risk: {reason_text}"
+                )
+
+            if article.get("freshness_status") == "stale":
+                risks_and_limitations.append(
+                    "News quality risk: Article is stale."
+                )
 
         if analysis_errors:
             overall_summary = (

@@ -192,3 +192,61 @@ def test_orchestrator_continues_when_price_agent_raises_exception():
         for risk in result["risks_and_limitations"]
     )
  
+def test_orchestrator_flags_duplicate_news_as_a_risk():
+    class DuplicateNewsAgent:
+        def analyse(self, ticker):
+            return {
+                "ticker": ticker,
+                "articles": [
+                    {
+                        "headline": "Example company news",
+                        "url": "https://example.com/news",
+                        "freshness_status": "fresh",
+                        "duplicate": True,
+                        "duplicate_reasons": ["Duplicate URL"],
+                    }
+                ],
+            }
+
+    orchestrator = InvestmentOrchestrator(
+        financial_agent=FakeFinancialAgent(),
+        price_agent=FakePriceAgent(),
+        news_agent=DuplicateNewsAgent(),
+    )
+
+    result = orchestrator.analyse("AAPL")
+
+    assert any(
+        "duplicate" in risk.lower()
+        for risk in result["risks_and_limitations"]
+    )
+    assert result["recommendation"] == "NOT_ASSESSED"
+
+def test_orchestrator_flags_stale_news_as_a_risk():
+    class StaleNewsAgent:
+        def analyse(self, ticker):
+            return {
+                "ticker": ticker,
+                "articles": [
+                    {
+                        "headline": "Older company news",
+                        "url": "https://example.com/old-news",
+                        "freshness_status": "stale",
+                        "duplicate": False,
+                    }
+                ],
+            }
+
+    orchestrator = InvestmentOrchestrator(
+        financial_agent=FakeFinancialAgent(),
+        price_agent=FakePriceAgent(),
+        news_agent=StaleNewsAgent(),
+    )
+
+    result = orchestrator.analyse("AAPL")
+
+    assert any(
+        "stale" in risk.lower()
+        for risk in result["risks_and_limitations"]
+    )
+    assert result["recommendation"] == "NOT_ASSESSED"
