@@ -178,3 +178,74 @@ def test_future_date_has_unknown_freshness():
         == "unknown"
     )
 
+def test_duplicate_url_is_flagged():
+    def fake_search(ticker, max_results=5):
+        article = {
+            "headline": "Apple reports quarterly results",
+            "url": "https://example.com/news#section",
+            "source": "Example News",
+            "published_at": "2026-10-27",
+            "content": "Apple reported its quarterly results.",
+        }
+        duplicate = {
+            **article,
+            "url": "https://example.com/news",
+            "headline": "A different headline for the same URL",
+        }
+        return {"provider": "Test", "articles": [article, duplicate]}
+
+    result = VerifiedNewsAgent(news_search=fake_search).analyse("AAPL")
+
+    assert result["articles"][0]["duplicate"] is False
+    assert result["articles"][1]["duplicate"] is True
+    assert "Duplicate URL" in result["articles"][1]["duplicate_reasons"]
+
+
+def test_duplicate_headline_ignores_case_and_whitespace():
+    def fake_search(ticker, max_results=5):
+        base = {
+            "url": "https://example.com/one",
+            "source": "Example News",
+            "published_at": "2026-10-27",
+            "content": "Example content.",
+        }
+        return {
+            "provider": "Test",
+            "articles": [
+                {**base, "headline": "Apple Reports Results"},
+                {
+                    **base,
+                    "url": "https://example.com/two",
+                    "headline": "  apple   reports results  ",
+                },
+            ],
+        }
+
+    result = VerifiedNewsAgent(news_search=fake_search).analyse("AAPL")
+
+    assert result["articles"][1]["duplicate"] is True
+    assert (
+        "Duplicate headline"
+        in result["articles"][1]["duplicate_reasons"]
+    )
+
+
+def test_duplicate_articles_are_preserved():
+    def fake_search(ticker, max_results=5):
+        article = {
+            "headline": "Apple news",
+            "url": "https://example.com/news",
+            "source": "Example News",
+            "published_at": "2026-10-27",
+            "content": "Example content.",
+        }
+        return {
+            "provider": "Test",
+            "articles": [article, article.copy()],
+        }
+
+    result = VerifiedNewsAgent(news_search=fake_search).analyse("AAPL")
+
+    assert len(result["articles"]) == 2
+    assert result["articles"][1]["duplicate"] is True
+

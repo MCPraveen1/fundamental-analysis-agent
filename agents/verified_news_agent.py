@@ -108,6 +108,8 @@ class VerifiedNewsAgent:
             }
 
         assessed_articles = []
+        seen_urls = set()
+        seen_headlines = set()
 
         for article in result.get("articles", []):
             if not isinstance(article, dict):
@@ -118,6 +120,36 @@ class VerifiedNewsAgent:
             source = article.get("source")
             published_at = article.get("published_at")
             content = article.get("content")
+            
+            normalized_url = (
+                urlparse(url.strip())._replace(fragment="").geturl().lower()
+                if self._valid_http_url(url)
+                else None
+            )
+
+            normalized_headline = (
+                " ".join(headline.lower().split())
+                if isinstance(headline, str) and headline.strip()
+                else None
+            )
+
+            duplicate_reasons = []
+
+            if normalized_url and normalized_url in seen_urls:
+                duplicate_reasons.append("Duplicate URL")
+
+            if (
+                normalized_headline
+                and normalized_headline in seen_headlines
+            ):
+                duplicate_reasons.append("Duplicate headline")
+
+            if normalized_url:
+                seen_urls.add(normalized_url)
+
+            if normalized_headline:
+                seen_headlines.add(normalized_headline)
+
 
             issues = []
 
@@ -158,6 +190,9 @@ class VerifiedNewsAgent:
                     "evidence_issues": issues,
                     "freshness_status": self._freshness_status(published_at),
                     "claims_independently_verified": False,
+                    "duplicate": bool(duplicate_reasons),
+                    "duplicate_reasons": duplicate_reasons,
+                    
                 }
             )
 
