@@ -55,7 +55,38 @@ class VerifiedNewsAgent:
             return "Publication date is in the future"
 
         return None
+
     
+    @staticmethod
+    def _freshness_status(published_at, max_age_days=7):
+        """Classify an article by age without judging factual accuracy."""
+
+        date_issue = VerifiedNewsAgent._publication_date_issue(
+            published_at
+        )
+
+        if date_issue is not None:
+            return "unknown"
+
+        try:
+            publication_date = parsedate_to_datetime(published_at)
+        except (TypeError, ValueError, OverflowError):
+            publication_date = datetime.fromisoformat(
+                published_at.strip().replace("Z", "+00:00")
+            )
+
+        if publication_date.tzinfo is None:
+            publication_date = publication_date.replace(
+                tzinfo=timezone.utc
+            )
+
+        age = datetime.now(timezone.utc) - publication_date
+
+        if age.days <= max_age_days:
+            return "fresh"
+
+        return "stale"
+
 
     def analyse(self, ticker, max_results=5):
         """Retrieve news and assess the completeness of each article."""
@@ -125,6 +156,7 @@ class VerifiedNewsAgent:
                     **article,
                     "evidence_status": status,
                     "evidence_issues": issues,
+                    "freshness_status": self._freshness_status(published_at),
                     "claims_independently_verified": False,
                 }
             )

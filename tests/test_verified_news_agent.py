@@ -136,3 +136,45 @@ def test_valid_tavily_publication_date():
         is None
     )
 
+def test_recent_article_is_fresh():
+    from datetime import datetime, timedelta, timezone
+
+    recent_date = (
+        datetime.now(timezone.utc) - timedelta(days=2)
+    ).isoformat()
+
+    assert (
+        VerifiedNewsAgent._freshness_status(recent_date)
+        == "fresh"
+    )
+
+
+def test_old_article_is_stale():
+    from datetime import datetime, timedelta, timezone
+
+    old_date = (
+        datetime.now(timezone.utc) - timedelta(days=10)
+    ).isoformat()
+
+    assert (
+        VerifiedNewsAgent._freshness_status(old_date)
+        == "stale"
+    )
+
+
+def test_missing_date_has_unknown_freshness():
+    assert VerifiedNewsAgent._freshness_status(None) == "unknown"
+
+
+def test_future_date_has_unknown_freshness():
+    from datetime import datetime, timedelta, timezone
+
+    future_date = (
+        datetime.now(timezone.utc) + timedelta(days=2)
+    ).isoformat()
+
+    assert (
+        VerifiedNewsAgent._freshness_status(future_date)
+        == "unknown"
+    )
+
