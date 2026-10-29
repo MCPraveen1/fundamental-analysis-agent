@@ -163,3 +163,32 @@ def test_orchestrator_preserves_news_quality_metadata():
     assert article["freshness_status"] == "fresh"
     assert article["duplicate"] is True
     assert article["duplicate_reasons"] == ["Duplicate URL"]
+
+ 
+
+def test_orchestrator_continues_when_price_agent_raises_exception():
+    class CrashingPriceAgent:
+        def analyse(self, ticker):
+            raise RuntimeError("Simulated price-service failure")
+
+    orchestrator = InvestmentOrchestrator(
+        financial_agent=FakeFinancialAgent(),
+        price_agent=CrashingPriceAgent(),
+        news_agent=FakeNewsAgent(),
+    )
+
+    result = orchestrator.analyse("AAPL")
+
+    assert result["financial_analysis"]["summary"] == (
+        "Financial analysis completed"
+    )
+    assert result["news_analysis"]["provider"] == "Test provider"
+    assert result["price_analysis"]["error"] == (
+        "Price analysis failed: Simulated price-service failure"
+    )
+    assert result["recommendation"] == "NOT_ASSESSED"
+    assert any(
+        "Price analysis: Price analysis failed:" in risk
+        for risk in result["risks_and_limitations"]
+    )
+ 

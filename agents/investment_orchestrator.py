@@ -20,6 +20,17 @@ class InvestmentOrchestrator:
         self.price_agent = price_agent or LivePriceAgent()
         self.news_agent = news_agent or VerifiedNewsAgent()
 
+    @staticmethod
+    def _run_agent(agent, ticker, label):
+        """Run an agent and convert unexpected exceptions into errors."""
+        try:
+            return agent.analyse(ticker)
+        except Exception as exc:
+            return {
+                "ticker": ticker,
+                "error": f"{label} failed: {exc}",
+            }
+
     def analyse(self, ticker_symbol):
         """Run specialist agents and return a structured investment memo."""
 
@@ -28,10 +39,15 @@ class InvestmentOrchestrator:
 
         ticker = ticker_symbol.strip().upper()
 
-        financial_result = self.financial_agent.analyse(ticker)
-        price_result = self.price_agent.analyse(ticker)
-        news_result = self.news_agent.analyse(ticker)
-
+        financial_result = self._run_agent(
+            self.financial_agent, ticker, "Financial analysis"
+        )
+        price_result = self._run_agent(
+            self.price_agent, ticker, "Price analysis"
+        )
+        news_result = self._run_agent(
+            self.news_agent, ticker, "News analysis"
+        )
         company_name = (
             financial_result.get("company_name")
             or price_result.get("company_name")
