@@ -99,17 +99,43 @@ class InvestmentOrchestrator:
                     "News quality risk: Article is stale."
                 )
 
+        summary_parts = []
+
+        financial_summary = financial_result.get("summary")
+        if financial_summary:
+            summary_parts.append(
+                f"Financial analysis: {financial_summary}"
+            )
+
+        price_summary = price_result.get("summary")
+        if price_summary:
+            summary_parts.append(
+                f"Price analysis: {price_summary}"
+            )
+
+        headlines = [
+            article.get("headline")
+            for article in news_result.get("articles", [])
+            if isinstance(article, dict)
+            and isinstance(article.get("headline"), str)
+            and article["headline"].strip()
+        ]
+
+        if headlines:
+            summary_parts.append(
+                "News highlights: " + "; ".join(headlines[:3])
+            )
+
         if analysis_errors:
-            overall_summary = (
+            summary_parts.append(
                 "The investment assessment is incomplete because "
                 "one or more specialist analyses reported an error."
             )
-        else:
-            overall_summary = financial_result.get(
-                "summary",
-                "Financial, price and news data were retrieved, but no "
-                "investment recommendation has been assessed.",
-            )
+
+        overall_summary = " ".join(summary_parts) or (
+            "Analysis results are limited. No investment recommendation "
+            "has been assessed."
+        )
 
         memo = InvestmentMemo(
             ticker=ticker,

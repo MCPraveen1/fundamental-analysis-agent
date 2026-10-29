@@ -250,3 +250,46 @@ def test_orchestrator_flags_stale_news_as_a_risk():
         for risk in result["risks_and_limitations"]
     )
     assert result["recommendation"] == "NOT_ASSESSED"
+
+def test_orchestrator_summary_includes_all_three_agent_results():
+    class DetailedFinancialAgent:
+        def analyse(self, ticker):
+            return {
+                "ticker": ticker,
+                "summary": "Revenue and cash flow are positive.",
+                "strengths": ["Positive cash flow"],
+            }
+
+    class DetailedPriceAgent:
+        def analyse(self, ticker):
+            return {
+                "ticker": ticker,
+                "current_price": 225.50,
+                "summary": "Price data retrieved successfully.",
+            }
+
+    class DetailedNewsAgent:
+        def analyse(self, ticker):
+            return {
+                "ticker": ticker,
+                "articles": [
+                    {
+                        "headline": "Company announces new product",
+                        "freshness_status": "fresh",
+                        "duplicate": False,
+                    }
+                ],
+            }
+
+    orchestrator = InvestmentOrchestrator(
+        financial_agent=DetailedFinancialAgent(),
+        price_agent=DetailedPriceAgent(),
+        news_agent=DetailedNewsAgent(),
+    )
+
+    result = orchestrator.analyse("AAPL")
+
+    assert "Revenue and cash flow are positive." in result["overall_summary"]
+    assert "Price data retrieved successfully." in result["overall_summary"]
+    assert "Company announces new product" in result["overall_summary"]
+    assert result["recommendation"] == "NOT_ASSESSED"
