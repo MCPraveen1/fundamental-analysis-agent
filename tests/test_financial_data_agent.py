@@ -93,7 +93,17 @@ def test_agent_sends_calculated_metrics_to_llm(monkeypatch):
     )[1].split("\n\nExplain:", 1)[0]
     payload = json.loads(json_text)
 
+    assert result["ticker"] == "AAPL"
+    assert result["company_name"] == "Apple Inc."
+    assert result["currency"] == "USD"
+    assert result["data_source"] == "Test provider"
+
     assert result["summary"] == "Test analysis"
+    assert result["strengths"] == ["Positive cash flow"]
+    assert result["concerns"] == []
+    assert result["data_limitations"] == []
+    assert result["evaluation_issues"] == []
+
     assert result["metrics"]["free_cash_flow"] == 140
     assert result["metrics"]["profit_margin"] == 0.10
     assert payload["calculated_metrics"]["free_cash_flow"] == 140

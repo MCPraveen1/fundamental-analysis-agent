@@ -32,6 +32,24 @@ SYSTEM_PROMPT = """
 - Clearly distinguish source facts from interpretations.
 - If evidence is insufficient, state that the conclusion cannot
   be established from the available data.
+
+OUTPUT FORMAT — MANDATORY
+
+Return only a valid JSON object. Do not use Markdown,
+code fences, headings, tables, or text outside the JSON.
+
+The JSON object must contain exactly these keys:
+- strengths: an array of strings
+- concerns: an array of strings
+- data_limitations: an array of strings
+- summary: a string
+
+Each strength and concern must be a separate array item.
+The summary should briefly explain profitability, returns,
+free cash flow, and historical trends where data is available.
+
+Use only the supplied financial data. Do not invent figures.
+If information is missing, explain the limitation.
 """
 
 def count_reporting_periods(history):
@@ -157,36 +175,73 @@ Do not make a BUY, HOLD or SELL recommendation.
 
 
         try:
-            narrative = json.loads(
+            response_data = json.loads(
                 response.choices[0].message.content
             )
 
+            # Handle Groq's nested response structure.
+            narrative = response_data.get(
+                "analysis", response_data
+            )
+
+            if not isinstance(narrative, dict):
+                raise TypeError(
+                    "Groq response must contain a JSON object."
+                )
+            # Extract fields from Groq's current response structure.
+            strengths = narrative.get("strengths", [])
+            concerns = narrative.get("concerns", [])
+            data_limitations = narrative.get(
+                "data_limitations", []
+            )
+            summary = narrative.get("summary", "")
+
+            # Ensure the fields have the expected types.
+            if not isinstance(strengths, list):
+                strengths = []
+
+            if not isinstance(concerns, list):
+                concerns = []
+
+            if isinstance(data_limitations, str):
+                data_limitations = [
+                    line.strip().lstrip("- ").strip()
+                    for line in data_limitations.splitlines()
+                    if line.strip()
+                ]
+            elif not isinstance(data_limitations, list):
+                data_limitations = []
+
+            if not isinstance(summary, str):
+                summary = ""
             evaluation_issues = evaluate_report_claims(
                 narrative=" ".join(
-                    narrative["strengths"]
-                    + narrative["concerns"]
-                    + narrative["data_limitations"]
-                    + [narrative["summary"]]
+                    strengths
+                    + concerns
+                    + data_limitations
+                    + [summary]
                 ),
                 has_industry_benchmarks=False,
                 reporting_period_count=count_reporting_periods(
-    snapshot.get("history", {})
-),
+                    snapshot.get("history", {})
+                ),
                 has_debt_data=(
-    financials.get("total_debt") is not None
-),
+                    financials.get("total_debt") is not None
+                ),
             )
 
             report = FinancialAnalysisReport(
                 ticker=snapshot["ticker"],
                 company_name=snapshot.get("company_name"),
-                currency=snapshot.get("currency"),
+                                currency=snapshot.get("currency"),
                 data_source=snapshot.get("data_source", "Unknown"),
                 metrics=FinancialMetrics(**ratios),
-                strengths=narrative["strengths"],
-                concerns=narrative["concerns"],
-                data_limitations=narrative["data_limitations"],
-                summary=narrative["summary"],
+                strengths=strengths,
+                concerns=concerns,
+                data_limitations=data_limitations,
+                summary=summary or (
+                    "The financial analysis returned no usable summary."
+                ),
                 evaluation_issues=evaluation_issues,
             )
 
@@ -202,7 +257,6 @@ Do not make a BUY, HOLD or SELL recommendation.
             }
 
         return report.model_dump()
-
 
 if __name__ == "__main__":
     agent = FinancialDataAgent()
