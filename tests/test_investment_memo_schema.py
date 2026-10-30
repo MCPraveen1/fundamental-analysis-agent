@@ -59,4 +59,50 @@ def test_news_analysis_defaults_to_empty_dictionary():
 
     assert memo.news_analysis == {}
 
+import pytest
+from pydantic import ValidationError
+
+from agents.investment_memo_schema import (
+    InvestmentMemo,
+    Recommendation,
+)
+
+
+def test_default_recommendation():
+    memo = InvestmentMemo(
+        ticker="AAPL",
+        financial_analysis={},
+        price_analysis={},
+        overall_summary="Test summary",
+    )
+
+    assert memo.recommendation == Recommendation.NOT_ASSESSED
+
+
+@pytest.mark.parametrize(
+    "recommendation",
+    ["BUY", "HOLD", "SELL", "NOT_ASSESSED"],
+)
+def test_valid_recommendations(recommendation):
+    memo = InvestmentMemo(
+        ticker="AAPL",
+        financial_analysis={},
+        price_analysis={},
+        overall_summary="Test summary",
+        recommendation=recommendation,
+    )
+
+    assert memo.recommendation == recommendation
+
+
+def test_invalid_recommendation():
+    with pytest.raises(ValidationError):
+        InvestmentMemo(
+            ticker="AAPL",
+            financial_analysis={},
+            price_analysis={},
+            overall_summary="Test summary",
+            recommendation="MAYBE",
+        )
+
     

@@ -228,7 +228,23 @@ Do not make a BUY, HOLD or SELL recommendation.
                 has_debt_data=(
                     financials.get("total_debt") is not None
                 ),
-            )
+               evidence={
+                    "history": {
+                        **snapshot.get("history", {}),
+                        "revenue": [
+                            {
+                                **record,
+                                "value": record["value"] / 1_000_000_000,
+                            }
+                            for record in snapshot.get("history", {}).get("revenue", [])
+                             if record.get("value") is not None
+            ],
+            },
+            "metrics": ratios,
+            "financials": financials,
+        }
+
+    )
 
             report = FinancialAnalysisReport(
                 ticker=snapshot["ticker"],

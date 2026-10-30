@@ -1,6 +1,13 @@
 
+from enum import Enum
 from pydantic import BaseModel, Field
 
+
+class Recommendation(str, Enum):
+    BUY = "BUY"
+    HOLD = "HOLD"
+    SELL = "SELL"
+    NOT_ASSESSED = "NOT_ASSESSED"
 
 class InvestmentMemo(BaseModel):
     """Structured investment memo built from specialist-agent results."""
@@ -18,4 +25,4 @@ class InvestmentMemo(BaseModel):
     risks_and_limitations: list[str] = Field(default_factory=list)
 
     overall_summary: str
-    recommendation: str = "NOT_ASSESSED"
+    recommendation: Recommendation = Recommendation.NOT_ASSESSED
