@@ -1,0 +1,70 @@
+sources:
+  - name: Reuters
+    domain: reuters.com
+    markets: [US, INDIA, GLOBAL]
+    source_type: financial_news
+    priority: 1
+    enabled: true
+
+  - name: Bloomberg
+    domain: bloomberg.com
+    markets: [US, INDIA, GLOBAL]
+    source_type: financial_news
+    priority: 1
+    enabled: true
+
+  - name: Financial Times
+    domain: ft.com
+    markets: [US, INDIA, GLOBAL]
+    source_type: financial_news
+    priority: 1
+    enabled: true
+
+  - name: Wall Street Journal
+    domain: wsj.com
+    markets: [US, GLOBAL]
+    source_type: financial_news
+    priority: 2
+    enabled: true
+
+  - name: CNBC
+    domain: cnbc.com
+    markets: [US, INDIA, GLOBAL]
+    source_type: financial_news
+    priority: 2
+    enabled: true
+
+  - name: Barron's
+    domain: barrons.com
+    markets: [US]
+    source_type: investment_analysis
+    priority: 2
+    enabled: true
+
+  - name: Business Standard
+    domain: business-standard.com
+    markets: [INDIA]
+    source_type: financial_news
+    priority: 1
+    enabled: true
+
+  - name: Mint
+    domain: livemint.com
+    markets: [INDIA]
+    source_type: financial_news
+    priority: 1
+    enabled: true
+
+  - name: Moneycontrol
+    domain: moneycontrol.com
+    markets: [INDIA]
+    source_type: financial_news
+    priority: 1
+    enabled: true
+
+  - name: The Hindu BusinessLine
+    domain: thehindubusinessline.com
+    markets: [INDIA]
+    source_type: financial_news
+    priority: 2
+    enabled: true

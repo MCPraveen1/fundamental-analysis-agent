@@ -1,11 +1,7 @@
 
-from tools.news_tools import search_financial_news
-
-from unittest.mock import Mock, patch
-
 import requests
-
-from tools.news_tools import search_financial_news
+from unittest.mock import Mock, patch
+from tools.news_tools import search_financial_news, search_tavily
 
 
 
@@ -117,3 +113,85 @@ def test_news_search_invalid_json(mock_getenv, mock_post):
 
     assert result["error"] == "The news provider returned invalid JSON."
     assert result["articles"] == []
+
+
+@patch("tools.news_tools.requests.post")
+@patch("tools.news_tools.os.getenv")
+def test_curated_search_passes_domains_and_days(mock_getenv, mock_post):
+    mock_getenv.return_value = "test-api-key"
+
+    mock_response = Mock()
+    mock_response.json.return_value = {"results": []}
+    mock_post.return_value = mock_response
+
+    result = search_tavily(
+        query="Reliance Industries financial results",
+        max_results=5,
+        include_domains=["reuters.com", "livemint.com"],
+        days=7,
+    )
+
+    assert result["provider"] == "Tavily"
+    assert result["articles"] == []
+
+    payload = mock_post.call_args.kwargs["json"]
+
+    assert payload["query"] == "Reliance Industries financial results"
+    assert payload["include_domains"] == [
+        "reuters.com",
+        "livemint.com",
+    ]
+    assert payload["days"] == 7
+
+
+@patch("tools.news_tools.requests.post")
+@patch("tools.news_tools.os.getenv")
+def test_fallback_search_does_not_restrict_domains(mock_getenv, mock_post):
+    mock_getenv.return_value = "test-api-key"
+
+    mock_response = Mock()
+    mock_response.json.return_value = {"results": []}
+    mock_post.return_value = mock_response
+
+    search_tavily(
+        query="Reliance Industries financial results",
+        days=7,
+    )
+
+    payload = mock_post.call_args.kwargs["json"]
+
+    assert "include_domains" not in payload
+    assert payload["days"] == 7
+
+
+def test_invalid_days_is_rejected():
+    result = search_tavily(
+        query="Reliance Industries",
+        days=0,
+    )
+
+    assert result["error"] == "days must be a positive integer."
+    assert result["articles"] == []
+
+
+def test_non_integer_days_is_rejected():
+    result = search_tavily(
+        query="Reliance Industries",
+        days="7",
+    )
+
+    assert result["error"] == "days must be a positive integer."
+    assert result["articles"] == []
+
+
+def test_invalid_include_domains_is_rejected():
+    result = search_tavily(
+        query="Reliance Industries",
+        include_domains="reuters.com",
+    )
+
+    assert result["error"] == (
+        "include_domains must be a list of valid domains."
+    )
+    assert result["articles"] == []
+
