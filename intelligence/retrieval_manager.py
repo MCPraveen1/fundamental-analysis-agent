@@ -72,40 +72,44 @@ def retrieve_financial_news(
 
     relevant_articles = []
     rejected_articles = []
+    search_errors = []
 
     def process_articles(raw_articles, category, retrieval_tier):
-            """Classify articles and retain their retrieval metadata."""
+        """Classify articles and retain their retrieval metadata."""
 
-            accepted = []
+        accepted = []
 
-            for article in raw_articles:
-                if not isinstance(article, dict):
-                    continue
+        for article in raw_articles:
+            if not isinstance(article, dict):
+                continue
 
-                classification = classify_article_relevance(
-                    article,
-                    identity,
-                )
+            classification = classify_article_relevance(
+                article,
+                identity,
+            )
 
-                enriched_article = {
-                    **article,
-                    "category": category,
-                    "retrieval_tier": retrieval_tier,
-                    **classification,
-                }
+            enriched_article = {
+                **article,
+                "category": category,
+                "retrieval_tier": retrieval_tier,
+                **classification,
+            }
 
-                if classification["is_relevant"]:
-                    accepted.append(enriched_article)
-                else:
-                    rejected_articles.append({
-                        **enriched_article,
-                        "rejection_reason": (
-                            "Article did not meet the company and "
-                            "financial-category relevance criteria."
-                        ),
-                    })
+            evidence = assess_evidence(enriched_article)
 
-            return accepted
+            enriched_article.update(evidence)
+            if classification["is_relevant"]:
+                accepted.append(enriched_article)
+            else:
+                rejected_articles.append({
+                    **enriched_article,
+                    "rejection_reason": (
+                        "Article did not meet the company and "
+                        "financial-category relevance criteria."
+                    ),
+                })
+
+        return accepted
 
     valid_queries = [
         item
@@ -128,9 +132,21 @@ def retrieve_financial_news(
 
         raw_articles = result.get("articles", [])
 
-        if result.get("error") or not isinstance(raw_articles, list):
+        if result.get("error"):
+            search_errors.append({
+                "category": category,
+                "retrieval_tier": "curated",
+                "error": result["error"],
+            })
             raw_articles = []
 
+        elif not isinstance(raw_articles, list):
+            search_errors.append({
+                "category": category,
+                "retrieval_tier": "curated",
+                "error": "Search provider returned an invalid articles format.",
+            })
+            raw_articles = []
         accepted = process_articles(
             raw_articles,
             category,
@@ -176,7 +192,20 @@ def retrieve_financial_news(
 
         raw_articles = result.get("articles", [])
 
-        if result.get("error") or not isinstance(raw_articles, list):
+        if result.get("error"):
+            search_errors.append({
+                "category": category,
+                "retrieval_tier": "fallback",
+                "error": result["error"],
+            })
+            raw_articles = []
+
+        elif not isinstance(raw_articles, list):
+            search_errors.append({
+                "category": category,
+                "retrieval_tier": "fallback",
+                "error": "Search provider returned an invalid articles format.",
+            })
             raw_articles = []
 
         accepted = process_articles(
@@ -203,4 +232,6 @@ def retrieve_financial_news(
             item["category"] for item in fallback_categories
         ],
         "total_unique_articles": len(unique_articles),
+        "search_errors": search_errors,
+        "search_error_count": len(search_errors),
     }

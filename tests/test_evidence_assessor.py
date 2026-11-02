@@ -11,7 +11,8 @@ def test_primary_source_statement():
     article = {
         "headline": "Reliance publishes official announcement",
         "content": "The company issued an official announcement.",
-        "source": "Reliance Investor Relations",
+        "source": "National Stock Exchange of India",
+        "url": "https://www.nseindia.com/companies-listing/corporate-filings",
     }
 
     result = assess_evidence(article)
@@ -19,7 +20,8 @@ def test_primary_source_statement():
     assert result["evidence_type"] == "primary_source_statement"
     assert result["is_forecast"] is False
     assert result["requires_verification"] is False
-
+    assert result["source_verified"] is True
+    assert result["is_primary_source"] is True
 
 def test_reported_financial_fact():
     article = {
@@ -119,3 +121,29 @@ def test_normalize_text():
     assert normalize_text("  Reliance   REVENUE  ") == (
         "reliance revenue"
     )
+
+def test_news_publisher_reporting_official_announcement():
+    article = {
+        "headline": "Reliance publishes official announcement",
+        "content": "The company announced a new investment.",
+        "url": "https://www.reuters.com/markets/stocks/example",
+    }
+
+    result = assess_evidence(article)
+
+    assert result["evidence_type"] == "reported_fact"
+    assert result["source_verified"] is True
+    assert result["is_primary_source"] is False
+
+def test_unknown_publisher_is_not_primary_source():
+    article = {
+        "headline": "Reliance publishes official announcement",
+        "content": "The company issued an official announcement.",
+        "url": "https://example.com/reliance-news",
+    }
+
+    result = assess_evidence(article)
+
+    assert result["evidence_type"] == "unverified_claim"
+    assert result["source_verified"] is False
+    assert result["is_primary_source"] is False

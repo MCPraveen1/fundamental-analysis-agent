@@ -6,6 +6,11 @@ import yaml
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 SOURCE_CONFIG_PATH = PROJECT_ROOT / "config" / "news_sources.yaml"
+ALLOWED_SOURCE_TYPES = {
+    "primary_source",
+    "financial_news",
+    "investment_analysis",
+}
 
 
 def load_source_registry():
@@ -46,6 +51,11 @@ def load_source_registry():
                 f"Source is missing required fields: {missing_fields}"
             )
 
+        if source["source_type"] not in ALLOWED_SOURCE_TYPES:
+            raise ValueError(
+                f"Unsupported source type: {source['source_type']}"
+            )
+
     return sources
 
 
@@ -80,7 +90,7 @@ def resolve_article_source(article_url):
             "source_domain": None,
             "source_type": "unknown",
             "source_verified": False,
-        }
+            "is_primary_source": False,  }
 
     parsed_url = urlparse(article_url.strip())
 
@@ -108,11 +118,12 @@ def resolve_article_source(article_url):
                 "source_domain": registered_domain,
                 "source_type": source["source_type"],
                 "source_verified": True,
-            }
-
+                "is_primary_source": source["source_type"] == "primary_source",
+}
     return {
-        "publisher_name": None,
-        "source_domain": article_domain,
-        "source_type": "unknown",
-        "source_verified": False,
-    }
+    "publisher_name": None,
+    "source_domain": article_domain,
+    "source_type": "unknown",
+    "source_verified": False,
+    "is_primary_source": False,
+}

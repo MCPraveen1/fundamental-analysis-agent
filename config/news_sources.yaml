@@ -68,3 +68,24 @@ sources:
     source_type: financial_news
     priority: 2
     enabled: true
+
+  - name: National Stock Exchange of India
+    domain: nseindia.com
+    markets: [INDIA]
+    source_type: primary_source
+    priority: 1
+    enabled: true
+
+  - name: BSE India
+    domain: bseindia.com
+    markets: [INDIA]
+    source_type: primary_source
+    priority: 1
+    enabled: true
+
+  - name: US Securities and Exchange Commission
+    domain: sec.gov
+    markets: [US]
+    source_type: primary_source
+    priority: 1
+    enabled: true

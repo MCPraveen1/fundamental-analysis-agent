@@ -68,16 +68,17 @@ def normalize_text(value):
 
 
 def assess_evidence(article):
-    """Classify the evidence type of a financial news article."""
+    """Classify financial news evidence by source and claim type."""
 
     if not isinstance(article, dict):
         raise ValueError("Article must be a dictionary.")
 
     headline = normalize_text(article.get("headline", ""))
     content = normalize_text(article.get("content", ""))
+
     source_provenance = resolve_article_source(
         article.get("url")
-)
+    )
 
     combined_text = f"{headline} {content}"
 
@@ -90,36 +91,23 @@ def assess_evidence(article):
             **source_provenance,
         }
 
-    # Identify primary-source indicators.
-    primary_source_match = any(
-        keyword in combined_text
-        for keyword in PRIMARY_SOURCE_KEYWORDS
-    )
-
-    # Identify analyst-related indicators.
     analyst_match = any(
         keyword in combined_text
         for keyword in ANALYST_KEYWORDS
     )
 
-    # Identify forward-looking statements.
     forecast_match = any(
         keyword in combined_text
         for keyword in FORECAST_KEYWORDS
     )
 
-    # Identify reported financial facts.
     reported_fact_match = any(
         keyword in combined_text
         for keyword in REPORTED_FACT_KEYWORDS
     )
 
-        # Determine the evidence classification.
-    if forecast_match and analyst_match:
-        evidence_type = "forecast"
-        evidence_basis = "Analyst-related forward-looking statement."
-
-    elif forecast_match:
+    # Classify the claim, giving forecasts and analyst opinions priority.
+    if forecast_match:
         evidence_type = "forecast"
         evidence_basis = "Forward-looking statement detected."
 
@@ -127,9 +115,11 @@ def assess_evidence(article):
         evidence_type = "analyst_opinion"
         evidence_basis = "Analyst or brokerage-related statement detected."
 
-    elif primary_source_match:
+    elif source_provenance["is_primary_source"]:
         evidence_type = "primary_source_statement"
-        evidence_basis = "Primary-source language detected in article."
+        evidence_basis = (
+            "Article hosted on a registered primary-source domain."
+        )
 
     elif reported_fact_match:
         evidence_type = "reported_fact"

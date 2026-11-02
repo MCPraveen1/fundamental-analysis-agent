@@ -124,3 +124,54 @@ def test_domain_spoofing_is_rejected():
     assert result["publisher_name"] is None
     assert result["source_type"] == "unknown"
     assert result["source_verified"] is False
+
+def test_primary_source_is_identified(monkeypatch):
+    monkeypatch.setattr(
+        "intelligence.source_registry.load_source_registry",
+        lambda: [
+            {
+                "name": "Reliance Investor Relations",
+                "domain": "ril.com",
+                "markets": ["INDIA"],
+                "source_type": "primary_source",
+                "priority": 1,
+                "enabled": True,
+            }
+        ],
+    )
+
+    result = resolve_article_source(
+        "https://www.ril.com/investors/announcement"
+    )
+
+    assert result["source_verified"] is True
+    assert result["is_primary_source"] is True
+    assert result["source_type"] == "primary_source"
+
+
+def test_financial_publisher_is_not_primary_source():
+    result = resolve_article_source(
+        "https://www.reuters.com/markets/stocks/example"
+    )
+
+    assert result["source_verified"] is True
+    assert result["is_primary_source"] is False
+
+
+def test_unknown_publisher_is_not_primary_source():
+    result = resolve_article_source(
+        "https://example.com/financial-news"
+    )
+
+    assert result["source_verified"] is False
+    assert result["is_primary_source"] is False
+
+def test_nse_is_identified_as_primary_source():
+    result = resolve_article_source(
+        "https://www.nseindia.com/companies-listing/corporate-filings"
+    )
+
+    assert result["publisher_name"] == "National Stock Exchange of India"
+    assert result["source_type"] == "primary_source"
+    assert result["source_verified"] is True
+    assert result["is_primary_source"] is True

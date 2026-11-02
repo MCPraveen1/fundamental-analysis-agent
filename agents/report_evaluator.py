@@ -49,7 +49,8 @@ def evaluate_report_claims(
     ):
         issues.append("Leverage claim lacks debt data")
 
-        revenue_history = (
+    # Revenue history is independent of the leverage check.
+    revenue_history = (
         evidence.get("history", {}).get("revenue", [])
     )
 

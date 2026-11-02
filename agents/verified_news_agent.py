@@ -5,13 +5,26 @@ from urllib.parse import urlparse
 from tools.news_tools import search_financial_news
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
+from intelligence.identity_resolver import resolve_company_identity
+from intelligence.query_planner import build_search_queries
+from intelligence.retrieval_manager import retrieve_financial_news
 
 
 class VerifiedNewsAgent:
     """Assess news metadata without claiming to verify factual truth."""
 
-    def __init__(self, news_search=None):
+    def __init__(
+        self,
+        news_search=None,
+        intelligence_retriever=None,
+):
+        self._use_intelligence_pipeline = news_search is None
+
         self.news_search = news_search or search_financial_news
+
+        self.intelligence_retriever = (
+            intelligence_retriever or retrieve_financial_news
+    )
 
     @staticmethod
     def _valid_http_url(url):
@@ -98,7 +111,32 @@ class VerifiedNewsAgent:
                 "articles": [],
             }
 
-        result = self.news_search(ticker, max_results=max_results)
+        if self._use_intelligence_pipeline:
+            identity = resolve_company_identity(ticker)
+
+            if identity.get("error"):
+                return {
+                    "ticker": ticker.strip().upper(),
+                    "error": identity["error"],
+                    "articles": [],
+                }
+
+            search_plan = build_search_queries(
+                identity,
+                period_days=7,
+            )
+
+            result = self.intelligence_retriever(
+                identity,
+                search_plan,
+                max_results_per_query=max_results,
+            )
+
+        else:
+            result = self.news_search(
+                ticker,
+                max_results=max_results,
+            )
 
         if result.get("error"):
             return {
@@ -196,7 +234,7 @@ class VerifiedNewsAgent:
                 }
             )
 
-        return {
+        response = {
             "ticker": ticker.strip().upper(),
             "provider": result.get("provider"),
             "articles": assessed_articles,
@@ -205,3 +243,24 @@ class VerifiedNewsAgent:
                 "of an article's claims."
             ),
         }
+
+        if self._use_intelligence_pipeline:
+            response.update({
+                "company_identity": identity,
+                "search_plan": search_plan,
+                "rejected_articles": result.get("rejected_articles", []),
+                "search_errors": result.get("search_errors", []),
+                "search_error_count": result.get("search_error_count", 0),
+                "curated_article_count": result.get(
+                    "curated_article_count", 0
+                ),
+                "category_counts": result.get("category_counts", {}),
+                "fallback_categories": result.get(
+                    "fallback_categories", []
+                ),
+                "total_unique_articles": result.get(
+                    "total_unique_articles", len(assessed_articles)
+                ),
+            })
+
+        return response

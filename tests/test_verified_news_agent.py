@@ -1,5 +1,6 @@
 
 from agents.verified_news_agent import VerifiedNewsAgent
+from unittest.mock import patch
 
 
 def test_complete_article_has_metadata_complete_status():
@@ -249,3 +250,222 @@ def test_duplicate_articles_are_preserved():
     assert len(result["articles"]) == 2
     assert result["articles"][1]["duplicate"] is True
 
+
+def test_intelligence_pipeline_success():
+    identity = {
+        "ticker": "AAPL",
+        "company_name": "Apple Inc.",
+        "market": "US",
+        "exchange": "US_MARKET",
+    }
+
+    search_plan = {
+        "ticker": "AAPL",
+        "company_name": "Apple Inc.",
+        "market": "US",
+        "period_days": 7,
+        "queries": [],
+    }
+
+    article = {
+        "headline": "Apple reports quarterly revenue growth",
+        "url": "https://reuters.com/apple-results",
+        "source": "Reuters",
+        "published_at": "2026-10-30",
+        "content": "Apple reported quarterly revenue growth.",
+        "evidence_type": "reported_fact",
+        "source_verified": True,
+        "is_primary_source": False,
+        "claims_independently_verified": False,
+    }
+
+    retrieval_result = {
+        "articles": [article],
+        "rejected_articles": [],
+        "search_errors": [],
+        "search_error_count": 0,
+        "curated_article_count": 1,
+        "category_counts": {"financial_performance": 1},
+        "fallback_categories": [],
+        "total_unique_articles": 1,
+    }
+
+    with patch(
+        "agents.verified_news_agent.resolve_company_identity",
+        return_value=identity,
+    ) as mock_identity, patch(
+        "agents.verified_news_agent.build_search_queries",
+        return_value=search_plan,
+    ) as mock_planner, patch(
+        "agents.verified_news_agent.retrieve_financial_news",
+        return_value=retrieval_result,
+    ) as mock_retriever:
+
+        agent = VerifiedNewsAgent()
+        result = agent.analyse("AAPL")
+
+    mock_identity.assert_called_once_with("AAPL")
+    mock_planner.assert_called_once_with(identity, period_days=7)
+    mock_retriever.assert_called_once()
+
+    assert result["ticker"] == "AAPL"
+    assert result["articles"][0]["evidence_type"] == "reported_fact"
+    assert result["articles"][0]["source_verified"] is True
+    assert result["articles"][0]["evidence_status"] == "metadata_complete"
+    assert result["total_unique_articles"] == 1
+
+
+def test_intelligence_pipeline_identity_error():
+    with patch(
+        "agents.verified_news_agent.resolve_company_identity",
+        return_value={
+            "ticker": "INVALID",
+            "error": "Unable to resolve company identity.",
+        },
+    ):
+
+        agent = VerifiedNewsAgent()
+        result = agent.analyse("INVALID")
+
+    assert result["error"] == "Unable to resolve company identity."
+    assert result["articles"] == []
+
+
+def test_intelligence_pipeline_preserves_search_errors():
+    identity = {
+        "ticker": "AAPL",
+        "company_name": "Apple Inc.",
+        "market": "US",
+        "exchange": "US_MARKET",
+    }
+
+    search_plan = {
+        "ticker": "AAPL",
+        "company_name": "Apple Inc.",
+        "market": "US",
+        "period_days": 7,
+        "queries": [],
+    }
+
+    retrieval_result = {
+        "articles": [],
+        "rejected_articles": [],
+        "search_errors": [
+            {
+                "category": "financial_performance",
+                "retrieval_tier": "curated",
+                "error": "Search provider unavailable.",
+            }
+        ],
+        "search_error_count": 1,
+        "curated_article_count": 0,
+        "category_counts": {},
+        "fallback_categories": ["financial_performance"],
+        "total_unique_articles": 0,
+    }
+
+    with patch(
+        "agents.verified_news_agent.resolve_company_identity",
+        return_value=identity,
+    ), patch(
+        "agents.verified_news_agent.build_search_queries",
+        return_value=search_plan,
+    ), patch(
+        "agents.verified_news_agent.retrieve_financial_news",
+        return_value=retrieval_result,
+    ):
+
+        result = VerifiedNewsAgent().analyse("AAPL")
+
+    assert result["search_error_count"] == 1
+    assert result["search_errors"][0]["retrieval_tier"] == "curated"
+    assert result["search_errors"][0]["error"] == (
+        "Search provider unavailable."
+    )
+
+
+def test_intelligence_pipeline_preserves_rejected_articles():
+    identity = {
+        "ticker": "AAPL",
+        "company_name": "Apple Inc.",
+        "market": "US",
+        "exchange": "US_MARKET",
+    }
+
+    rejected_article = {
+        "headline": "Unrelated market commentary",
+        "url": "https://example.com/commentary",
+        "rejection_reason": "Article did not meet relevance criteria.",
+    }
+
+    retrieval_result = {
+        "articles": [],
+        "rejected_articles": [rejected_article],
+        "search_errors": [],
+        "search_error_count": 0,
+        "curated_article_count": 0,
+        "category_counts": {},
+        "fallback_categories": [],
+        "total_unique_articles": 0,
+    }
+
+    with patch(
+        "agents.verified_news_agent.resolve_company_identity",
+        return_value=identity,
+    ), patch(
+        "agents.verified_news_agent.build_search_queries",
+        return_value={"queries": [], "period_days": 7},
+    ), patch(
+        "agents.verified_news_agent.retrieve_financial_news",
+        return_value=retrieval_result,
+    ):
+
+        result = VerifiedNewsAgent().analyse("AAPL")
+
+    assert len(result["rejected_articles"]) == 1
+    assert (
+        result["rejected_articles"][0]["rejection_reason"]
+        == "Article did not meet relevance criteria."
+    )
+
+
+def test_intelligence_pipeline_preserves_coverage_metadata():
+    identity = {
+        "ticker": "AAPL",
+        "company_name": "Apple Inc.",
+        "market": "US",
+        "exchange": "US_MARKET",
+    }
+
+    retrieval_result = {
+        "articles": [],
+        "rejected_articles": [],
+        "search_errors": [],
+        "search_error_count": 0,
+        "curated_article_count": 3,
+        "category_counts": {
+            "company_developments": 1,
+            "financial_performance": 1,
+            "market_reaction": 1,
+        },
+        "fallback_categories": ["expert_analysis"],
+        "total_unique_articles": 3,
+    }
+
+    with patch(
+        "agents.verified_news_agent.resolve_company_identity",
+        return_value=identity,
+    ), patch(
+        "agents.verified_news_agent.build_search_queries",
+        return_value={"queries": [], "period_days": 7},
+    ), patch(
+        "agents.verified_news_agent.retrieve_financial_news",
+        return_value=retrieval_result,
+    ):
+
+        result = VerifiedNewsAgent().analyse("AAPL")
+
+    assert result["curated_article_count"] == 3
+    assert result["total_unique_articles"] == 3
+    assert result["category_counts"]["financial_performance"] == 1
+    assert result["fallback_categories"] == ["expert_analysis"]
