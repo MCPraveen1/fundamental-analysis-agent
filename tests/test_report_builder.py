@@ -171,7 +171,6 @@ def test_build_report_requires_ticker():
     with pytest.raises(ValueError, match="ticker"):
         build_financial_intelligence_report(news_analysis)
 
-
 def test_build_report_rejects_non_list_articles():
     news_analysis = {
         "ticker": "AAPL",
