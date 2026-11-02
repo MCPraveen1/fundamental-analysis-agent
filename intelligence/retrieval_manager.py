@@ -5,6 +5,7 @@ from tools.news_tools import search_tavily
 from intelligence.source_registry import get_sources_by_market
 from intelligence.relevance_classifier import classify_article_relevance
 from intelligence.article_deduplicator import deduplicate_articles
+from intelligence.evidence_assessor import assess_evidence
 
 
 def retrieve_financial_news(
@@ -73,38 +74,38 @@ def retrieve_financial_news(
     rejected_articles = []
 
     def process_articles(raw_articles, category, retrieval_tier):
-        """Classify articles and retain their retrieval metadata."""
+            """Classify articles and retain their retrieval metadata."""
 
-        accepted = []
+            accepted = []
 
-        for article in raw_articles:
-            if not isinstance(article, dict):
-                continue
+            for article in raw_articles:
+                if not isinstance(article, dict):
+                    continue
 
-            classification = classify_article_relevance(
-                article,
-                identity,
-            )
+                classification = classify_article_relevance(
+                    article,
+                    identity,
+                )
 
-            enriched_article = {
-                **article,
-                "category": category,
-                "retrieval_tier": retrieval_tier,
-                **classification,
-            }
+                enriched_article = {
+                    **article,
+                    "category": category,
+                    "retrieval_tier": retrieval_tier,
+                    **classification,
+                }
 
-            if classification["is_relevant"]:
-                accepted.append(enriched_article)
-            else:
-                rejected_articles.append({
-                    **enriched_article,
-                    "rejection_reason": (
-                        "Article did not meet the company and "
-                        "financial-category relevance criteria."
-                    ),
-                })
+                if classification["is_relevant"]:
+                    accepted.append(enriched_article)
+                else:
+                    rejected_articles.append({
+                        **enriched_article,
+                        "rejection_reason": (
+                            "Article did not meet the company and "
+                            "financial-category relevance criteria."
+                        ),
+                    })
 
-        return accepted
+            return accepted
 
     valid_queries = [
         item

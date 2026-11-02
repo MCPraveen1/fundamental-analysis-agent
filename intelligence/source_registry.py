@@ -1,3 +1,4 @@
+from urllib.parse import urlparse
 from pathlib import Path
 
 import yaml
@@ -69,3 +70,49 @@ def get_sources_by_market(market):
         selected_sources,
         key=lambda source: source["priority"],
     )
+
+def resolve_article_source(article_url):
+    """Identify an article publisher using its URL and source registry."""
+
+    if not isinstance(article_url, str) or not article_url.strip():
+        return {
+            "publisher_name": None,
+            "source_domain": None,
+            "source_type": "unknown",
+            "source_verified": False,
+        }
+
+    parsed_url = urlparse(article_url.strip())
+
+    if parsed_url.scheme not in {"http", "https"} or not parsed_url.hostname:
+        return {
+            "publisher_name": None,
+            "source_domain": None,
+            "source_type": "unknown",
+            "source_verified": False,
+        }
+
+    article_domain = parsed_url.hostname.lower().removeprefix("www.")
+
+    sources = load_source_registry()
+
+    for source in sources:
+        registered_domain = source["domain"].lower().removeprefix("www.")
+
+        if (
+            article_domain == registered_domain
+            or article_domain.endswith("." + registered_domain)
+        ):
+            return {
+                "publisher_name": source["name"],
+                "source_domain": registered_domain,
+                "source_type": source["source_type"],
+                "source_verified": True,
+            }
+
+    return {
+        "publisher_name": None,
+        "source_domain": article_domain,
+        "source_type": "unknown",
+        "source_verified": False,
+    }

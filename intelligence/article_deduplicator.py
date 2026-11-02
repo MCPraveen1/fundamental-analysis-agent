@@ -121,6 +121,37 @@ def deduplicate_articles(articles):
         if existing_index is not None:
             existing = unique_articles[existing_index]
 
+                        # Preserve conflicting publisher and evidence metadata.
+            metadata_fields = {
+                "publisher_name",
+                "source_domain",
+                "source_type",
+                "source_verified",
+                "evidence_type",
+                "evidence_basis",
+                "requires_verification",
+                "is_forecast",
+            }
+
+            conflicts = existing.setdefault("metadata_conflicts", {})
+
+            for field in metadata_fields:
+                existing_value = existing.get(field)
+                incoming_value = article.get(field)
+
+                if (
+                    incoming_value is not None
+                    and existing_value is not None
+                    and incoming_value != existing_value
+                ):
+                    conflict_values = conflicts.setdefault(field, [])
+
+                    if (
+                        incoming_value != existing_value
+                        and incoming_value not in conflict_values
+                    ):
+                        conflict_values.append(incoming_value)
+
             # Preserve all retrieval tiers.
             tiers = set(existing.get("retrieval_tiers", []))
             tiers.update(

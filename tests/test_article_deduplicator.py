@@ -149,3 +149,50 @@ def test_headline_normalization():
     assert normalize_headline(
         "  Reliance Announces Investment!  "
     ) == "reliance announces investment"
+
+def test_publisher_provenance_is_preserved():
+    first = make_article(
+        "Reliance announces investment",
+        "https://example.com/news/1",
+    )
+
+    first.update({
+        "publisher_name": "Reuters",
+        "source_domain": "reuters.com",
+        "source_type": "financial_news",
+        "source_verified": True,
+        "evidence_type": "reported_fact",
+    })
+
+    result = deduplicate_articles([first])
+
+    assert result[0]["publisher_name"] == "Reuters"
+    assert result[0]["source_domain"] == "reuters.com"
+    assert result[0]["source_type"] == "financial_news"
+    assert result[0]["source_verified"] is True
+    assert result[0]["evidence_type"] == "reported_fact"
+
+
+def test_conflicting_evidence_metadata_is_preserved():
+    first = make_article(
+        "Reliance announces investment",
+        "https://example.com/news/1",
+    )
+
+    first["evidence_type"] = "forecast"
+
+    second = make_article(
+        "Different headline",
+        "https://example.com/news/1",
+        retrieval_tier="fallback",
+    )
+
+    second["evidence_type"] = "analyst_opinion"
+
+    result = deduplicate_articles([first, second])
+
+    assert len(result) == 1
+    assert result[0]["evidence_type"] == "forecast"
+    assert result[0]["metadata_conflicts"]["evidence_type"] == [
+        "analyst_opinion"
+    ]
