@@ -3,6 +3,9 @@ from agents.financial_data_agent import FinancialDataAgent
 from agents.live_price_agent import LivePriceAgent
 from agents.verified_news_agent import VerifiedNewsAgent
 from agents.investment_memo_schema import InvestmentMemo
+from intelligence.report_builder import (
+    build_financial_intelligence_report,
+)
 
 
 class InvestmentOrchestrator:
@@ -48,6 +51,7 @@ class InvestmentOrchestrator:
         news_result = self._run_agent(
             self.news_agent, ticker, "News analysis"
         )
+
         company_name = (
             financial_result.get("company_name")
             or price_result.get("company_name")
@@ -79,6 +83,19 @@ class InvestmentOrchestrator:
             analysis_errors.append(
                 f"News analysis: {news_result['error']}"
             )
+
+        financial_intelligence_report = {}
+
+        if not news_result.get("error"):
+            try:
+                financial_intelligence_report = (
+                    build_financial_intelligence_report(news_result)
+                )
+            except (ValueError, TypeError) as exc:
+                risks_and_limitations.append(
+                    f"Financial intelligence report generation failed: {exc}"
+                )
+
 
         risks_and_limitations.extend(analysis_errors)
         for article in news_result.get("articles", []):
@@ -144,6 +161,7 @@ class InvestmentOrchestrator:
             financial_analysis=financial_result,
             price_analysis=price_result,
             news_analysis=news_result,
+            financial_intelligence_report=financial_intelligence_report,
             key_strengths=key_strengths,
             key_concerns=key_concerns,
             risks_and_limitations=risks_and_limitations,

@@ -293,3 +293,47 @@ def test_orchestrator_summary_includes_all_three_agent_results():
     assert "Price data retrieved successfully." in result["overall_summary"]
     assert "Company announces new product" in result["overall_summary"]
     assert result["recommendation"] == "NOT_ASSESSED"
+
+def test_orchestrator_includes_financial_intelligence_report():
+    orchestrator = InvestmentOrchestrator(
+        financial_agent=FakeFinancialAgent(),
+        price_agent=FakePriceAgent(),
+        news_agent=FakeNewsAgent(),
+    )
+
+    result = orchestrator.analyse("AAPL")
+
+    report = result["financial_intelligence_report"]
+
+    assert report["report_type"] == "financial_intelligence"
+    assert report["ticker"] == "AAPL"
+    assert report["evidence_summary"]["claims_independently_verified"] is False
+    assert "news_analysis" in result
+    assert result["recommendation"] == "NOT_ASSESSED"
+
+def test_orchestrator_handles_news_report_generation_failure():
+    class FailingNewsAgent:
+        def analyse(self, ticker):
+            return {
+                "ticker": ticker,
+                "error": "News search unavailable.",
+                "articles": [],
+            }
+
+    orchestrator = InvestmentOrchestrator(
+        financial_agent=FakeFinancialAgent(),
+        price_agent=FakePriceAgent(),
+        news_agent=FailingNewsAgent(),
+    )
+
+    result = orchestrator.analyse("AAPL")
+
+    assert result["financial_intelligence_report"] == {}
+    assert result["news_analysis"]["error"] == (
+        "News search unavailable."
+    )
+    assert any(
+        "News analysis: News search unavailable." in risk
+        for risk in result["risks_and_limitations"]
+    )
+    assert result["recommendation"] == "NOT_ASSESSED"
