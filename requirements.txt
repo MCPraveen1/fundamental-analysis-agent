@@ -6,3 +6,6 @@ python-dotenv
 groq
 requests
 PyYAML
+fastapi
+uvicorn[standard]
+reportlab
