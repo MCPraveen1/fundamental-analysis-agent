@@ -1,0 +1,42 @@
+
+# Git
+.git/
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+tests/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs and temporary files
+*.log
+tmp/
+temp/
+
+# Generated reports
+reports/*.pdf
+
+# Local databases and cache
+*.db
+*.sqlite
+*.sqlite3
+cache/
+data/cache/
