@@ -1,0 +1,2339 @@
+{
+  "ticker": "AAPL",
+  "company_name": "Apple Inc.",
+  "currency": "USD",
+  "financial_analysis": {
+    "ticker": "AAPL",
+    "company_name": "Apple Inc.",
+    "currency": "USD",
+    "data_source": "Financial Modeling Prep",
+    "metrics": {
+      "profit_margin": 0.27603511864236874,
+      "operating_margin": 0.3300997840587761,
+      "return_on_assets": 0.3267226633180735,
+      "return_on_equity": 1.17915480895328,
+      "free_cash_flow": 136056000000
+    },
+    "strengths": [
+      "Strong profit margin (~27.6%) indicating efficient cost management",
+      "Robust operating margin (~33%) showing healthy core earnings",
+      "High return on assets (~32.7%) reflecting effective asset utilization",
+      "Very high return on equity (~118%) suggesting strong equity returns (additional leverage analysis needed)",
+      "Significant free cash flow (~$136 billion) providing financial flexibility",
+      "Revenue grew from $391 billion (2024) to $479 billion (2026)",
+      "Net income increased from $93.7 billion (2024) to $132.2 billion (2026)",
+      "Operating cash flow rose from $118.3 billion (2024) to $145.1 billion (2026)"
+    ],
+    "concerns": [
+      "Extremely high ROE may be influenced by the relatively low equity base; detailed leverage analysis is required",
+      "Capital expenditure of $9.0 billion (negative cash flow) indicates ongoing investment whose future cash‑flow impact is uncertain",
+      "Debt information is limited to total debt ($2.0 billion) without breakdown of short‑term vs long‑term or interest expense",
+      "Lack of liquidity metrics (cash, current assets) prevents assessment of short‑term solvency"
+    ],
+    "data_limitations": [
+      "No data on interest expense, tax rate, or earnings per share",
+      "Missing number of shares outstanding, market capitalization, and dividend information",
+      "Only three annual reporting periods are provided, limiting ability to confirm long‑term trends",
+      "Absence of detailed liability composition and debt maturity schedule",
+      "Capital expenditure is shown only as a cash‑flow line item, not as a separate expense figure"
+    ],
+    "summary": "Apple Inc. (ticker AAPL) reported in USD, sourced from Financial Modeling Prep, a profit margin of 27.6% and operating margin of 33%, indicating strong profitability. Returns are high with ROA at 32.7% and ROE at 118%, though the latter warrants further leverage analysis. Free cash flow stands at $136 billion, supporting financial flexibility. Over the three reported years, revenue rose from $391 billion to $479 billion, net income grew from $93.7 billion to $132.2 billion, and operating cash flow increased from $118.3 billion to $145.1 billion, showing positive historical momentum. Strengths include robust margins, strong returns, ample free cash flow, and consistent growth. Concerns relate to the unusually high ROE, limited debt detail, and ongoing capital expenditures. Data limitations prevent a full assessment of leverage, liquidity, and long‑term trend stability.",
+    "evaluation_issues": []
+  },
+  "price_analysis": {
+    "ticker": "AAPL",
+    "company_name": "Apple Inc.",
+    "current_price": 331.9,
+    "currency": "USD",
+    "data_source": "Financial Modeling Prep"
+  },
+  "news_analysis": {
+    "ticker": "AAPL",
+    "provider": null,
+    "articles": [
+      {
+        "headline": "Apple earnings beat, but margin outlook weighs on stock",
+        "url": "https://www.cnbc.com/2026/11/03/apple-earnings-analysts-margin-outlook.html",
+        "source": "cnbc.com",
+        "published_at": "Tue, 03 Nov 2026 11:59:53 GMT",
+        "content": "Apple issued an underwhelming profits outlook and disclosed some soft sales trends during its latest quarterly report, but Wall Street analysts still see a lot to like about the stock. The iPhone maker posted earnings of $2.10 per share for the fiscal fourth quarter, topping the $1.99 expected by analysts polled by LSEG. Revenue came in at $114.48 billion, well above the $113.39 billion anticipated by the Street. iPhone sales — a major revenue driver for Apple — came in at $57.58 billion to [...] its new forecast still points to a 23% decline. \"We are most concerned about the trends in Services. Recall in the June quarter, App Store was not mentioned as one of the top three revenue contributors for only the third time in the last decade. We believe there is pressure from regulatory changes in the EU and the US related to link out transactions.\" Bank of America: Buy, $370 \"Despite supply constraints impacting iPhone, iPad and Macs, Apple delivered a strong F4Q26 with iPhone revs growing [...] $57.58 billion to exceed analysts' $56.54 billion consensus estimate. However, iPad and other product sales trailed expectations. The company also underwhelmed the Street with its gross margin forecast for the current quarter. That figure sits between 45% and 46%, below the Street's average estimate of 46.3%. Shares of Apple slid about 4% in premarket trading, underscoring investors' disappointment with the company's outlook and lagging sales across some product types. AAPL YTD mountain Apple",
+        "relevance_score": 0.10884103,
+        "category": "company_developments",
+        "retrieval_tier": "curated",
+        "company_relevance": "direct",
+        "matched_categories": [
+          "company_developments",
+          "expert_analysis",
+          "financial_performance",
+          "market_reaction"
+        ],
+        "is_relevant": true,
+        "evidence_type": "forecast",
+        "evidence_basis": "Forward-looking statement detected.",
+        "is_forecast": true,
+        "requires_verification": false,
+        "publisher_name": "CNBC",
+        "source_domain": "cnbc.com",
+        "source_type": "financial_news",
+        "source_verified": true,
+        "is_primary_source": false,
+        "retrieval_tiers": [
+          "curated"
+        ],
+        "retrieval_categories": [
+          "company_developments",
+          "expert_analysis",
+          "financial_performance",
+          "market_reaction"
+        ],
+        "alternate_urls": [],
+        "metadata_conflicts": {},
+        "evidence_status": "metadata_complete",
+        "evidence_issues": [],
+        "freshness_status": "fresh",
+        "claims_independently_verified": false,
+        "duplicate": false,
+        "duplicate_reasons": []
+      },
+      {
+        "headline": "Apple earnings: John Ternus faces first test amid high memory costs",
+        "url": "https://www.cnbc.com/2026/11/03/apple-earnings-john-ternus-faces-first-test-amid-high-memory-costs.html",
+        "source": "cnbc.com",
+        "published_at": "Tue, 03 Nov 2026 12:00:01 GMT",
+        "content": "In response, Apple has drastically increased its purchase obligations to secure supply, Khan said. Those obligations rose by $33 billion from the June quarter to the September period, Khan said, though he declined to answer questions about whether Apple had signed \"long-term agreements\" with memory makers.\n\n\"We're always working hard to improve supply,\" Khan said. [...] Apple reported better-than-expected earnings and revenue on Monday, including in the company's core iPhone unit, and even projected sales in the current period that topped estimates. But just before Ternus opened the earnings call up to analysts' questions, CFO Kevan Parekh came forward with the first real piece of bad news. [...] Despite its size and global clout, Apple said it expects supply constraints on iPhones and Macs in the holiday quarter, primarily driven by memory.\n\nOn the call, Ternus had some top lieutenants field component-related questions. Sabih Khan, chief operating officer, became the first Apple COO to appear on an earnings call since Cook in 2010, when Steve Jobs was CEO.\n\n\"As we have said before, we're seeing less flexibility in the supply chain than normal,\" Khan told analysts on the call.",
+        "relevance_score": 0.1087274,
+        "category": "company_developments",
+        "retrieval_tier": "curated",
+        "company_relevance": "direct",
+        "matched_categories": [
+          "company_developments",
+          "expert_analysis",
+          "financial_performance",
+          "market_reaction"
+        ],
+        "is_relevant": true,
+        "evidence_type": "forecast",
+        "evidence_basis": "Forward-looking statement detected.",
+        "is_forecast": true,
+        "requires_verification": false,
+        "publisher_name": "CNBC",
+        "source_domain": "cnbc.com",
+        "source_type": "financial_news",
+        "source_verified": true,
+        "is_primary_source": false,
+        "retrieval_tiers": [
+          "curated"
+        ],
+        "retrieval_categories": [
+          "company_developments",
+          "financial_performance"
+        ],
+        "alternate_urls": [],
+        "metadata_conflicts": {},
+        "evidence_status": "metadata_complete",
+        "evidence_issues": [],
+        "freshness_status": "fresh",
+        "claims_independently_verified": false,
+        "duplicate": false,
+        "duplicate_reasons": []
+      },
+      {
+        "headline": "Apple heads into the holidays with record revenue, growing market share, and a wave of new products",
+        "url": "https://www.cnbc.com/video/2026/11/03/apple-heads-into-the-holidays-with-record-revenue-growing-market-share-and-a-wave-of-new-products.html",
+        "source": "cnbc.com",
+        "published_at": "Tue, 03 Nov 2026 20:42:19 GMT",
+        "content": "Apple heads into the holidays with record revenue, growing market share, and a wave of new products\n\nCNBC's MacKenzie Sigalos reports as Apple shares begin to pare losses, with a strong holiday outlook, growing hardware market share, and plans to expand Siri AI.",
+        "relevance_score": 0.100869976,
+        "category": "company_developments",
+        "retrieval_tier": "curated",
+        "company_relevance": "direct",
+        "matched_categories": [
+          "financial_performance",
+          "market_reaction",
+          "expert_analysis",
+          "company_developments"
+        ],
+        "is_relevant": true,
+        "evidence_type": "forecast",
+        "evidence_basis": "Forward-looking statement detected.",
+        "is_forecast": true,
+        "requires_verification": false,
+        "publisher_name": "CNBC",
+        "source_domain": "cnbc.com",
+        "source_type": "financial_news",
+        "source_verified": true,
+        "is_primary_source": false,
+        "retrieval_tiers": [
+          "curated"
+        ],
+        "retrieval_categories": [
+          "company_developments"
+        ],
+        "alternate_urls": [],
+        "evidence_status": "metadata_complete",
+        "evidence_issues": [],
+        "freshness_status": "fresh",
+        "claims_independently_verified": false,
+        "duplicate": false,
+        "duplicate_reasons": []
+      },
+      {
+        "headline": "Apple warns of AI agents behave in 'unintended or unpredictable' ways",
+        "url": "https://www.cnbc.com/2026/11/03/apple-warns-of-ai-agents-behave-in-unintended-or-unpredictable-ways.html",
+        "source": "cnbc.com",
+        "published_at": "Tue, 03 Nov 2026 20:10:41 GMT",
+        "content": "Separately, the ability of agents to use a computer in human ways is forcing big companies like Amazon and JPMorgan Chase to come up with policies around agentic access to services for strategic or security reasons.\n\nLast month, Apple announced changes to full disk access on Macs to reduce \"risks related to this level of access\" for AI agents installed on PCs. [...] \"The Company's ability to oversee and control third-party artificial intelligence agents and other technologies may be limited,\" Apple warned in its filing.\n\nApple doesn't currently have an agentic AI. But when new CEO John Ternus was asked on Monday's earnings call about AI agents, he said that the company had \"real room\" to expand Siri's capabilities. [...] Earlier this year, OpenAI released Dots, and Meta introduced Muse. Both AI agents use advanced AI models to work autonomously for tasks. They can even email or remind users when new messages arrive.\n\nApple's disclosure comes after several episodes that involved rogue AI agents breaking out of their sandboxes to hack third-party websites, like the Hugging Face incident, which has drawn renewed attention from policymakers in Washington, D.C., and around the world.",
+        "relevance_score": 0.090582706,
+        "category": "company_developments",
+        "retrieval_tier": "curated",
+        "company_relevance": "direct",
+        "matched_categories": [
+          "financial_performance",
+          "company_developments"
+        ],
+        "is_relevant": true,
+        "evidence_type": "reported_fact",
+        "evidence_basis": "Reported financial information detected.",
+        "is_forecast": false,
+        "requires_verification": false,
+        "publisher_name": "CNBC",
+        "source_domain": "cnbc.com",
+        "source_type": "financial_news",
+        "source_verified": true,
+        "is_primary_source": false,
+        "retrieval_tiers": [
+          "curated"
+        ],
+        "retrieval_categories": [
+          "company_developments"
+        ],
+        "alternate_urls": [],
+        "evidence_status": "metadata_complete",
+        "evidence_issues": [],
+        "freshness_status": "fresh",
+        "claims_independently_verified": false,
+        "duplicate": false,
+        "duplicate_reasons": []
+      },
+      {
+        "headline": "Apple is 'the mack daddy of tech companies,' says Humilis Investment's Brian Belski",
+        "url": "https://www.cnbc.com/video/2026/11/02/apple-is-the-mack-daddy-of-tech-companies-says-humilis-investments-brian-belski.html",
+        "source": "cnbc.com",
+        "published_at": "Mon, 02 Nov 2026 20:17:40 GMT",
+        "content": "Apple is 'the mack daddy of tech companies,' says Humilis Investment's Brian Belski\n\nYorkville Ives’ Dan Ives, Malcolm Ethridge, Managing Partner at Capital Area Planning Group, and Brian Belski, founder, CEO and chief investment officer at Humilis Investment Strategies, join 'Closing Bell' to discuss Apple and Palantir earnings.",
+        "relevance_score": 0.085962325,
+        "category": "company_developments",
+        "retrieval_tier": "curated",
+        "company_relevance": "direct",
+        "matched_categories": [
+          "company_developments",
+          "financial_performance"
+        ],
+        "is_relevant": true,
+        "evidence_type": "reported_fact",
+        "evidence_basis": "Reported financial information detected.",
+        "is_forecast": false,
+        "requires_verification": false,
+        "publisher_name": "CNBC",
+        "source_domain": "cnbc.com",
+        "source_type": "financial_news",
+        "source_verified": true,
+        "is_primary_source": false,
+        "retrieval_tiers": [
+          "curated"
+        ],
+        "retrieval_categories": [
+          "company_developments"
+        ],
+        "alternate_urls": [],
+        "evidence_status": "metadata_complete",
+        "evidence_issues": [],
+        "freshness_status": "fresh",
+        "claims_independently_verified": false,
+        "duplicate": false,
+        "duplicate_reasons": []
+      },
+      {
+        "headline": "Apple Earnings by the Numbers",
+        "url": "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-11-02-2026/card/apple-earnings-by-the-numbers-sBoUkneMmstOTbSZnKrJ",
+        "source": "wsj.com",
+        "published_at": "Sun, 01 Nov 2026 22:00:00 GMT",
+        "content": "21 hours ago\n\n# Apple Earnings by the Numbers\n\nThe Apple growth machine is wavering, but price increases enabled the company to come in just ahead of Wall Street’s expectations in its September quarter.\n\nRevenue grew 12% in the September quarter, slightly ahead of Wall Street’s expectations.\n\nThe widely tracked gross profit margin, at 47.9%, also came in just ahead of analyst estimates. [...] The company's net income came in at $30.71 billion, beating analyst estimates compiled by FactSet of $30.38 billion.",
+        "relevance_score": 0.6977124,
+        "category": "financial_performance",
+        "retrieval_tier": "curated",
+        "company_relevance": "direct",
+        "matched_categories": [
+          "financial_performance",
+          "expert_analysis"
+        ],
+        "is_relevant": true,
+        "evidence_type": "analyst_opinion",
+        "evidence_basis": "Analyst or brokerage-related statement detected.",
+        "is_forecast": false,
+        "requires_verification": false,
+        "publisher_name": "Wall Street Journal",
+        "source_domain": "wsj.com",
+        "source_type": "financial_news",
+        "source_verified": true,
+        "is_primary_source": false,
+        "retrieval_tiers": [
+          "curated"
+        ],
+        "retrieval_categories": [
+          "financial_performance"
+        ],
+        "alternate_urls": [],
+        "evidence_status": "metadata_complete",
+        "evidence_issues": [],
+        "freshness_status": "fresh",
+        "claims_independently_verified": false,
+        "duplicate": false,
+        "duplicate_reasons": []
+      },
+      {
+        "headline": "Apple's quarter is not perfect. But with enough to like, we raised our price target",
+        "url": "https://www.cnbc.com/investingclub/2026/11/02/apples-quarter-is-not-perfect-but-with-enough-to-like-we-raised-our-price-target.html",
+        "source": "cnbc.com",
+        "published_at": "Tue, 03 Nov 2026 00:55:36 GMT",
+        "content": "it can monetize. Company-wide gross margin came in at the high end of management's outlook, improving 70 basis points year over year to 47.9%. That beat the consensus forecast of 47.5%. The result included a favorable impact of 1 percentage point from tariff refunds. Excluding the tariff refund, gross margins would have been down one percentage point sequentially, primary due to higher memory costs. By unit , Products gross margin improved 100 basis points year over year to 37.2%, beating the [...] needed to report a picture-perfect quarter with a strong outlook to avoid profit-taking. Unfortunately, that did not happen. However, Apple's quarterly results were strong, with revenue, gross margin upside, and Services about in line. The figures were enough to keep the stock unchanged for most of the evening. However, when management provided guidance for the current quarter, the stock fell about 3% in after-hours trading due to downside in gross margins and Services revenue growth relative [...] of $152.12 billion. That was the good news. The bad news was that the high-margin Services revenue growth is expected to slow down again. The company guided Services revenue growth to 8% to 9%, below the Street estimate of 10%. This works out to a guide of $32.56 billion versus the consensus estimate of $33 billion. The combination of a higher mix of hardware sales (lower margin) with the ongoing memory price increase are probably the reasons why the gross margin guide was light. The company",
+        "relevance_score": 0.5248093,
+        "category": "financial_performance",
+        "retrieval_tier": "curated",
+        "company_relevance": "direct",
+        "matched_categories": [
+          "company_developments",
+          "expert_analysis",
+          "financial_performance",
+          "market_reaction"
+        ],
+        "is_relevant": true,
+        "evidence_type": "forecast",
+        "evidence_basis": "Forward-looking statement detected.",
+        "is_forecast": true,
+        "requires_verification": false,
+        "publisher_name": "CNBC",
+        "source_domain": "cnbc.com",
+        "source_type": "financial_news",
+        "source_verified": true,
+        "is_primary_source": false,
+        "retrieval_tiers": [
+          "curated"
+        ],
+        "retrieval_categories": [
+          "financial_performance",
+          "market_reaction"
+        ],
+        "alternate_urls": [],
+        "metadata_conflicts": {},
+        "evidence_status": "metadata_complete",
+        "evidence_issues": [],
+        "freshness_status": "fresh",
+        "claims_independently_verified": false,
+        "duplicate": false,
+        "duplicate_reasons": []
+      },
+      {
+        "headline": "Apple forecasts margin drop in holiday quarter as rising memory costs bite | Reuters",
+        "url": "https://www.reuters.com/business/retail-consumer/apple-results-beat-wall-street-expectations-on-strong-iphone-sales-2026-11-02",
+        "source": "reuters.com",
+        "published_at": "Tue, 03 Nov 2026 04:40:22 GMT",
+        "content": "Apple said it expects gross margin of 45% to 46% in the quarter ending in December, down from 47.9% in the fourth quarter. It forecast services revenue growth of 8% to 9%, below analysts' expectations of 10.7%. [...] Mac sales were $10.79 billion, above estimates of $9.61 billion. Services revenue was $31.57 billion, in line with estimates of $31.58 billion. iPad and wearables sales were $6.23 billion and $8.30 billion, both below estimates. Chinese sales were $17.54 billion, ​below the $18.58 billion analysts estimated, according to Visible Alpha data. [...] Apple in recent weeks has grappled with customer reports of cracked screens on the iPhone Duo, its first foldable phone, which sold out within hours online and spurred lines at stores last ​month.\n\nFiscal fourth-quarter sales were $114.48 billion, above analyst estimates of $113.39 billion, according to LSEG data. Profit was $2.10 per share, above estimates of $1.99 even when excluding 5 cents from tariff refunds.\n\n## IPHONE DUO SUPPLY CONSTRAINTS",
+        "relevance_score": 0.477238,
+        "category": "financial_performance",
+        "retrieval_tier": "curated",
+        "company_relevance": "direct",
+        "matched_categories": [
+          "financial_performance",
+          "expert_analysis"
+        ],
+        "is_relevant": true,
+        "evidence_type": "forecast",
+        "evidence_basis": "Forward-looking statement detected.",
+        "is_forecast": true,
+        "requires_verification": false,
+        "publisher_name": "Reuters",
+        "source_domain": "reuters.com",
+        "source_type": "financial_news",
+        "source_verified": true,
+        "is_primary_source": false,
+        "retrieval_tiers": [
+          "curated"
+        ],
+        "retrieval_categories": [
+          "financial_performance"
+        ],
+        "alternate_urls": [],
+        "evidence_status": "metadata_complete",
+        "evidence_issues": [],
+        "freshness_status": "fresh",
+        "claims_independently_verified": false,
+        "duplicate": false,
+        "duplicate_reasons": []
+      },
+      {
+        "headline": "Stock futures fall as investors weigh Apple earnings; U.S. midterm elections loom: Live updates - CNBC",
+        "url": "https://www.cnbc.com/2026/11/02/stock-market-today-live-updates.html",
+        "source": "cnbc.com",
+        "published_at": "Mon, 02 Nov 2026 23:09:32 GMT",
+        "content": "S&P 500 futures traded lower early on Tuesday as investors mulled over Apple's quarterly earnings report and awaited U.S. midterm elections. Dow Jones Industrial Average futures were down 0.46%, while S&P 500 futures fell 0.14%. Apple shares were down 2% in extended trading after the consumer tech giant rolled out a disappointing margin forecast and iPad sales in the fiscal fourth quarter missed the Street's estimates. In the regular U.S. session, the tech-heavy Nasdaq Composite dipped 1.07%, while the S&P 500 fell 0.51% as investors continued their rotation out of tech stocks. Oracle shares also fell 8% after the company said it plans to sell $10 billion in common stock and $10 billion in bonds to help finance its artificial intelligence build-out. A sweep of the House and Senate by Democrats could spark a sell-off for artificial intelligence stocks, according to JPMorgan. Apple — Apple shares were down 2% in extended trading after the consumer tech giant rolled out a disappointing margin forecast and iPad sales in the fiscal fourth quarter missed the Street's estimates.",
+        "relevance_score": 0.36148077,
+        "category": "market_reaction",
+        "retrieval_tier": "curated",
+        "company_relevance": "direct",
+        "matched_categories": [
+          "financial_performance",
+          "market_reaction",
+          "expert_analysis"
+        ],
+        "is_relevant": true,
+        "evidence_type": "forecast",
+        "evidence_basis": "Forward-looking statement detected.",
+        "is_forecast": true,
+        "requires_verification": false,
+        "publisher_name": "CNBC",
+        "source_domain": "cnbc.com",
+        "source_type": "financial_news",
+        "source_verified": true,
+        "is_primary_source": false,
+        "retrieval_tiers": [
+          "curated"
+        ],
+        "retrieval_categories": [
+          "market_reaction"
+        ],
+        "alternate_urls": [],
+        "evidence_status": "metadata_complete",
+        "evidence_issues": [],
+        "freshness_status": "fresh",
+        "claims_independently_verified": false,
+        "duplicate": false,
+        "duplicate_reasons": []
+      },
+      {
+        "headline": "'Fast Money' traders react to Apple Q4 results - CNBC",
+        "url": "https://www.cnbc.com/video/2026/11/02/fast-money-traders-react-to-apple-q4-results.html",
+        "source": "cnbc.com",
+        "published_at": "Mon, 02 Nov 2026 22:25:38 GMT",
+        "content": "'Fast Money' traders react to Apple Q4 results. The 'Fast Money' traders react to Apple quarterly results. Apple beats on revenue in John Ternus' first quarter as CEO. Mondelez CEO Dirk Van de Put: Snacking is 'clearly strong' in emerging markets like India and Brazil. Applied Digital CEO Wes Cummins on Elon Musk’s 'guppy-level death' prediction for 200-plus neoclouds. Anthropic reports $17 billion in Q3 revenue, purchase commitments of $895.4 billion in revised S-1. Anthropic releases amended IPO prospectus with third-quarter financials.",
+        "relevance_score": 0.2999765,
+        "category": "market_reaction",
+        "retrieval_tier": "curated",
+        "company_relevance": "direct",
+        "matched_categories": [
+          "financial_performance",
+          "market_reaction"
+        ],
+        "is_relevant": true,
+        "evidence_type": "reported_fact",
+        "evidence_basis": "Reported financial information detected.",
+        "is_forecast": false,
+        "requires_verification": false,
+        "publisher_name": "CNBC",
+        "source_domain": "cnbc.com",
+        "source_type": "financial_news",
+        "source_verified": true,
+        "is_primary_source": false,
+        "retrieval_tiers": [
+          "curated"
+        ],
+        "retrieval_categories": [
+          "market_reaction"
+        ],
+        "alternate_urls": [],
+        "evidence_status": "metadata_complete",
+        "evidence_issues": [],
+        "freshness_status": "fresh",
+        "claims_independently_verified": false,
+        "duplicate": false,
+        "duplicate_reasons": []
+      },
+      {
+        "headline": "Morning Bid: Markets hope for relief in Apple margins - Reuters",
+        "url": "https://www.reuters.com/world/china/global-markets-view-europe-2026-11-02/",
+        "source": "reuters.com",
+        "published_at": "Mon, 02 Nov 2026 05:51:03 GMT",
+        "content": "A look at the day ahead in European and global markets from Wayne Cole. ​It could be investors are hoping for some earnings relief from Apple (AAPL.O) later today given ‌it isn't spending mountains of cash on data centres. Apple's shares have been something of ​a haven of stability having risen for four straight months and are up 27% so far this year, ​pushing its valuation past $5 trillion. More challenging for the mood will be results from AMD (AMD.O) later in the week given it slid almost 11% last Friday as Intel INTC.O shed 28% on a disappointing outlook. The US midterms are an added wrinkle as ​a Democratic win could result in more political opposition to data centres and calls for controls on ​AI in general. There are also plenty of reports the US has been telling allies in the Middle East to expect a renewed strike on Iran once the midterms ​are over.",
+        "relevance_score": 0.21373838,
+        "category": "market_reaction",
+        "retrieval_tier": "curated",
+        "company_relevance": "direct",
+        "matched_categories": [
+          "expert_analysis",
+          "financial_performance",
+          "market_reaction"
+        ],
+        "is_relevant": true,
+        "evidence_type": "forecast",
+        "evidence_basis": "Forward-looking statement detected.",
+        "is_forecast": true,
+        "requires_verification": false,
+        "publisher_name": "Reuters",
+        "source_domain": "reuters.com",
+        "source_type": "financial_news",
+        "source_verified": true,
+        "is_primary_source": false,
+        "retrieval_tiers": [
+          "curated"
+        ],
+        "retrieval_categories": [
+          "expert_analysis",
+          "market_reaction"
+        ],
+        "alternate_urls": [],
+        "metadata_conflicts": {},
+        "evidence_status": "metadata_complete",
+        "evidence_issues": [],
+        "freshness_status": "fresh",
+        "claims_independently_verified": false,
+        "duplicate": false,
+        "duplicate_reasons": []
+      },
+      {
+        "headline": "Apple's valuation looks stretched before earnings, says MoffettNathanson's Craig Moffett - CNBC",
+        "url": "https://www.cnbc.com/video/2026/10/30/apples-valuation-looks-stretched-before-earnings-says-moffettnathansons-craig-moffett.html",
+        "source": "cnbc.com",
+        "published_at": "Fri, 30 Oct 2026 21:39:31 GMT",
+        "content": "Apple's valuation looks stretched before earnings, says MoffettNathanson's Craig Moffett. Craig Moffett, MoffettNathanson co-founder and senior analyst, joins 'Closing Bell Overtime' to talk the state of the tech trade and what to expect from Apple. CFTC Chair Michael Selig on Utah-Kalshi suit: We'll take it all the way to the Supreme Court. Twilio CEO Khozema Shipchandler: The need for AI agent infrastructure will provide tailwinds for us. Elon Musk sees the election as a 'crusade' and is all in on the Republicans, says Walter Isaacson. ExxonMobil CEO Darren Woods: We are producing record volumes of diesel in North America. Hackers steal $6B+ from Binance in what is likely biggest crypto heist of all time.",
+        "relevance_score": 0.42462727,
+        "category": "expert_analysis",
+        "retrieval_tier": "curated",
+        "company_relevance": "direct",
+        "matched_categories": [
+          "financial_performance",
+          "market_reaction",
+          "expert_analysis"
+        ],
+        "is_relevant": true,
+        "evidence_type": "analyst_opinion",
+        "evidence_basis": "Analyst or brokerage-related statement detected.",
+        "is_forecast": false,
+        "requires_verification": false,
+        "publisher_name": "CNBC",
+        "source_domain": "cnbc.com",
+        "source_type": "financial_news",
+        "source_verified": true,
+        "is_primary_source": false,
+        "retrieval_tiers": [
+          "curated"
+        ],
+        "retrieval_categories": [
+          "expert_analysis"
+        ],
+        "alternate_urls": [],
+        "evidence_status": "metadata_complete",
+        "evidence_issues": [],
+        "freshness_status": "fresh",
+        "claims_independently_verified": false,
+        "duplicate": false,
+        "duplicate_reasons": []
+      },
+      {
+        "headline": "Apple's shares remain attractive over the next 12 months, says Neuberger's Flax - CNBC",
+        "url": "https://www.cnbc.com/video/2026/11/03/apple-shares-remain-attractive-over-the-next-12-months-says-analyst.html",
+        "source": "cnbc.com",
+        "published_at": "Tue, 03 Nov 2026 03:26:33 GMT",
+        "content": "Apple's shares remain attractive over the next 12 months, says Neuberger's Flax. Neuberger's Daniel Flax shares his outlook for Apple following the company's first earnings call under CEO John Ternus. He remains bullish on the stock, saying Apple's memory chip challenges are not \"insurmountable\".",
+        "relevance_score": 0.3320293,
+        "category": "expert_analysis",
+        "retrieval_tier": "curated",
+        "company_relevance": "direct",
+        "matched_categories": [
+          "financial_performance",
+          "market_reaction",
+          "expert_analysis"
+        ],
+        "is_relevant": true,
+        "evidence_type": "forecast",
+        "evidence_basis": "Forward-looking statement detected.",
+        "is_forecast": true,
+        "requires_verification": false,
+        "publisher_name": "CNBC",
+        "source_domain": "cnbc.com",
+        "source_type": "financial_news",
+        "source_verified": true,
+        "is_primary_source": false,
+        "retrieval_tiers": [
+          "curated"
+        ],
+        "retrieval_categories": [
+          "expert_analysis"
+        ],
+        "alternate_urls": [],
+        "evidence_status": "metadata_complete",
+        "evidence_issues": [],
+        "freshness_status": "fresh",
+        "claims_independently_verified": false,
+        "duplicate": false,
+        "duplicate_reasons": []
+      },
+      {
+        "headline": "Bank of America forecasts a much weaker December quarter for Apple - CNBC",
+        "url": "https://www.cnbc.com/video/2026/10/30/bank-of-america-forecasts-a-much-weaker-december-quarter-for-apple.html",
+        "source": "cnbc.com",
+        "published_at": "Fri, 30 Oct 2026 22:30:16 GMT",
+        "content": "Bank of America forecasts a much weaker December quarter for Apple. CNBC’s MacKenzie Sigalos reports on Bank of America’s bearish December-quarter forecast, rising memory-chip costs, and what investors are watching in Apple’s first earnings report under John Ternus.",
+        "relevance_score": 0.2488448,
+        "category": "expert_analysis",
+        "retrieval_tier": "curated",
+        "company_relevance": "direct",
+        "matched_categories": [
+          "financial_performance",
+          "expert_analysis"
+        ],
+        "is_relevant": true,
+        "evidence_type": "forecast",
+        "evidence_basis": "Forward-looking statement detected.",
+        "is_forecast": true,
+        "requires_verification": false,
+        "publisher_name": "CNBC",
+        "source_domain": "cnbc.com",
+        "source_type": "financial_news",
+        "source_verified": true,
+        "is_primary_source": false,
+        "retrieval_tiers": [
+          "curated"
+        ],
+        "retrieval_categories": [
+          "expert_analysis"
+        ],
+        "alternate_urls": [],
+        "evidence_status": "metadata_complete",
+        "evidence_issues": [],
+        "freshness_status": "fresh",
+        "claims_independently_verified": false,
+        "duplicate": false,
+        "duplicate_reasons": []
+      }
+    ],
+    "verification_note": "Metadata completeness does not establish the truth of an article's claims.",
+    "company_identity": {
+      "ticker": "AAPL",
+      "company_name": "Apple Inc.",
+      "market": "US",
+      "exchange": "US_MARKET",
+      "currency": "USD",
+      "data_source": "Financial Modeling Prep"
+    },
+    "search_plan": {
+      "ticker": "AAPL",
+      "company_name": "Apple Inc.",
+      "market": "US",
+      "period_days": 7,
+      "queries": [
+        {
+          "category": "company_developments",
+          "query": "Apple Inc. latest company announcements investments acquisitions"
+        },
+        {
+          "category": "financial_performance",
+          "query": "Apple Inc. earnings revenue margins financial results"
+        },
+        {
+          "category": "market_reaction",
+          "query": "Apple Inc. US stock market share price trading volume market reaction"
+        },
+        {
+          "category": "expert_analysis",
+          "query": "Apple Inc. analyst opinions valuation forecasts outlook"
+        }
+      ]
+    },
+    "rejected_articles": [],
+    "search_errors": [],
+    "search_error_count": 0,
+    "curated_article_count": 14,
+    "category_counts": {
+      "company_developments": 4,
+      "financial_performance": 14,
+      "market_reaction": 8,
+      "expert_analysis": 11
+    },
+    "fallback_categories": [],
+    "total_unique_articles": 14
+  },
+  "financial_intelligence_report": {
+    "report_type": "financial_intelligence",
+    "ticker": "AAPL",
+    "company": {
+      "ticker": "AAPL",
+      "company_name": "Apple Inc.",
+      "market": "US",
+      "exchange": "US_MARKET",
+      "currency": "USD",
+      "data_source": "Financial Modeling Prep"
+    },
+    "period_days": 7,
+    "retrieval_summary": {
+      "total_unique_articles": 14,
+      "curated_article_count": 14,
+      "rejected_article_count": 0,
+      "search_error_count": 0,
+      "category_counts": {
+        "company_developments": 4,
+        "financial_performance": 14,
+        "market_reaction": 8,
+        "expert_analysis": 11
+      },
+      "fallback_categories": []
+    },
+    "news_categories": {
+      "company_developments": [
+        {
+          "headline": "Apple earnings beat, but margin outlook weighs on stock",
+          "url": "https://www.cnbc.com/2026/11/03/apple-earnings-analysts-margin-outlook.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 11:59:53 GMT",
+          "content": "Apple issued an underwhelming profits outlook and disclosed some soft sales trends during its latest quarterly report, but Wall Street analysts still see a lot to like about the stock. The iPhone maker posted earnings of $2.10 per share for the fiscal fourth quarter, topping the $1.99 expected by analysts polled by LSEG. Revenue came in at $114.48 billion, well above the $113.39 billion anticipated by the Street. iPhone sales — a major revenue driver for Apple — came in at $57.58 billion to [...] its new forecast still points to a 23% decline. \"We are most concerned about the trends in Services. Recall in the June quarter, App Store was not mentioned as one of the top three revenue contributors for only the third time in the last decade. We believe there is pressure from regulatory changes in the EU and the US related to link out transactions.\" Bank of America: Buy, $370 \"Despite supply constraints impacting iPhone, iPad and Macs, Apple delivered a strong F4Q26 with iPhone revs growing [...] $57.58 billion to exceed analysts' $56.54 billion consensus estimate. However, iPad and other product sales trailed expectations. The company also underwhelmed the Street with its gross margin forecast for the current quarter. That figure sits between 45% and 46%, below the Street's average estimate of 46.3%. Shares of Apple slid about 4% in premarket trading, underscoring investors' disappointment with the company's outlook and lagging sales across some product types. AAPL YTD mountain Apple",
+          "relevance_score": 0.10884103,
+          "category": "company_developments",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "company_developments",
+            "expert_analysis",
+            "financial_performance",
+            "market_reaction"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "company_developments",
+            "expert_analysis",
+            "financial_performance",
+            "market_reaction"
+          ],
+          "alternate_urls": [],
+          "metadata_conflicts": {},
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple earnings: John Ternus faces first test amid high memory costs",
+          "url": "https://www.cnbc.com/2026/11/03/apple-earnings-john-ternus-faces-first-test-amid-high-memory-costs.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 12:00:01 GMT",
+          "content": "In response, Apple has drastically increased its purchase obligations to secure supply, Khan said. Those obligations rose by $33 billion from the June quarter to the September period, Khan said, though he declined to answer questions about whether Apple had signed \"long-term agreements\" with memory makers.\n\n\"We're always working hard to improve supply,\" Khan said. [...] Apple reported better-than-expected earnings and revenue on Monday, including in the company's core iPhone unit, and even projected sales in the current period that topped estimates. But just before Ternus opened the earnings call up to analysts' questions, CFO Kevan Parekh came forward with the first real piece of bad news. [...] Despite its size and global clout, Apple said it expects supply constraints on iPhones and Macs in the holiday quarter, primarily driven by memory.\n\nOn the call, Ternus had some top lieutenants field component-related questions. Sabih Khan, chief operating officer, became the first Apple COO to appear on an earnings call since Cook in 2010, when Steve Jobs was CEO.\n\n\"As we have said before, we're seeing less flexibility in the supply chain than normal,\" Khan told analysts on the call.",
+          "relevance_score": 0.1087274,
+          "category": "company_developments",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "company_developments",
+            "expert_analysis",
+            "financial_performance",
+            "market_reaction"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "company_developments",
+            "financial_performance"
+          ],
+          "alternate_urls": [],
+          "metadata_conflicts": {},
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple heads into the holidays with record revenue, growing market share, and a wave of new products",
+          "url": "https://www.cnbc.com/video/2026/11/03/apple-heads-into-the-holidays-with-record-revenue-growing-market-share-and-a-wave-of-new-products.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 20:42:19 GMT",
+          "content": "Apple heads into the holidays with record revenue, growing market share, and a wave of new products\n\nCNBC's MacKenzie Sigalos reports as Apple shares begin to pare losses, with a strong holiday outlook, growing hardware market share, and plans to expand Siri AI.",
+          "relevance_score": 0.100869976,
+          "category": "company_developments",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "market_reaction",
+            "expert_analysis",
+            "company_developments"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "company_developments"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple warns of AI agents behave in 'unintended or unpredictable' ways",
+          "url": "https://www.cnbc.com/2026/11/03/apple-warns-of-ai-agents-behave-in-unintended-or-unpredictable-ways.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 20:10:41 GMT",
+          "content": "Separately, the ability of agents to use a computer in human ways is forcing big companies like Amazon and JPMorgan Chase to come up with policies around agentic access to services for strategic or security reasons.\n\nLast month, Apple announced changes to full disk access on Macs to reduce \"risks related to this level of access\" for AI agents installed on PCs. [...] \"The Company's ability to oversee and control third-party artificial intelligence agents and other technologies may be limited,\" Apple warned in its filing.\n\nApple doesn't currently have an agentic AI. But when new CEO John Ternus was asked on Monday's earnings call about AI agents, he said that the company had \"real room\" to expand Siri's capabilities. [...] Earlier this year, OpenAI released Dots, and Meta introduced Muse. Both AI agents use advanced AI models to work autonomously for tasks. They can even email or remind users when new messages arrive.\n\nApple's disclosure comes after several episodes that involved rogue AI agents breaking out of their sandboxes to hack third-party websites, like the Hugging Face incident, which has drawn renewed attention from policymakers in Washington, D.C., and around the world.",
+          "relevance_score": 0.090582706,
+          "category": "company_developments",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "company_developments"
+          ],
+          "is_relevant": true,
+          "evidence_type": "reported_fact",
+          "evidence_basis": "Reported financial information detected.",
+          "is_forecast": false,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "company_developments"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple is 'the mack daddy of tech companies,' says Humilis Investment's Brian Belski",
+          "url": "https://www.cnbc.com/video/2026/11/02/apple-is-the-mack-daddy-of-tech-companies-says-humilis-investments-brian-belski.html",
+          "source": "cnbc.com",
+          "published_at": "Mon, 02 Nov 2026 20:17:40 GMT",
+          "content": "Apple is 'the mack daddy of tech companies,' says Humilis Investment's Brian Belski\n\nYorkville Ives’ Dan Ives, Malcolm Ethridge, Managing Partner at Capital Area Planning Group, and Brian Belski, founder, CEO and chief investment officer at Humilis Investment Strategies, join 'Closing Bell' to discuss Apple and Palantir earnings.",
+          "relevance_score": 0.085962325,
+          "category": "company_developments",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "company_developments",
+            "financial_performance"
+          ],
+          "is_relevant": true,
+          "evidence_type": "reported_fact",
+          "evidence_basis": "Reported financial information detected.",
+          "is_forecast": false,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "company_developments"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple's quarter is not perfect. But with enough to like, we raised our price target",
+          "url": "https://www.cnbc.com/investingclub/2026/11/02/apples-quarter-is-not-perfect-but-with-enough-to-like-we-raised-our-price-target.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 00:55:36 GMT",
+          "content": "it can monetize. Company-wide gross margin came in at the high end of management's outlook, improving 70 basis points year over year to 47.9%. That beat the consensus forecast of 47.5%. The result included a favorable impact of 1 percentage point from tariff refunds. Excluding the tariff refund, gross margins would have been down one percentage point sequentially, primary due to higher memory costs. By unit , Products gross margin improved 100 basis points year over year to 37.2%, beating the [...] needed to report a picture-perfect quarter with a strong outlook to avoid profit-taking. Unfortunately, that did not happen. However, Apple's quarterly results were strong, with revenue, gross margin upside, and Services about in line. The figures were enough to keep the stock unchanged for most of the evening. However, when management provided guidance for the current quarter, the stock fell about 3% in after-hours trading due to downside in gross margins and Services revenue growth relative [...] of $152.12 billion. That was the good news. The bad news was that the high-margin Services revenue growth is expected to slow down again. The company guided Services revenue growth to 8% to 9%, below the Street estimate of 10%. This works out to a guide of $32.56 billion versus the consensus estimate of $33 billion. The combination of a higher mix of hardware sales (lower margin) with the ongoing memory price increase are probably the reasons why the gross margin guide was light. The company",
+          "relevance_score": 0.5248093,
+          "category": "financial_performance",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "company_developments",
+            "expert_analysis",
+            "financial_performance",
+            "market_reaction"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "financial_performance",
+            "market_reaction"
+          ],
+          "alternate_urls": [],
+          "metadata_conflicts": {},
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        }
+      ],
+      "financial_performance": [
+        {
+          "headline": "Apple earnings beat, but margin outlook weighs on stock",
+          "url": "https://www.cnbc.com/2026/11/03/apple-earnings-analysts-margin-outlook.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 11:59:53 GMT",
+          "content": "Apple issued an underwhelming profits outlook and disclosed some soft sales trends during its latest quarterly report, but Wall Street analysts still see a lot to like about the stock. The iPhone maker posted earnings of $2.10 per share for the fiscal fourth quarter, topping the $1.99 expected by analysts polled by LSEG. Revenue came in at $114.48 billion, well above the $113.39 billion anticipated by the Street. iPhone sales — a major revenue driver for Apple — came in at $57.58 billion to [...] its new forecast still points to a 23% decline. \"We are most concerned about the trends in Services. Recall in the June quarter, App Store was not mentioned as one of the top three revenue contributors for only the third time in the last decade. We believe there is pressure from regulatory changes in the EU and the US related to link out transactions.\" Bank of America: Buy, $370 \"Despite supply constraints impacting iPhone, iPad and Macs, Apple delivered a strong F4Q26 with iPhone revs growing [...] $57.58 billion to exceed analysts' $56.54 billion consensus estimate. However, iPad and other product sales trailed expectations. The company also underwhelmed the Street with its gross margin forecast for the current quarter. That figure sits between 45% and 46%, below the Street's average estimate of 46.3%. Shares of Apple slid about 4% in premarket trading, underscoring investors' disappointment with the company's outlook and lagging sales across some product types. AAPL YTD mountain Apple",
+          "relevance_score": 0.10884103,
+          "category": "company_developments",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "company_developments",
+            "expert_analysis",
+            "financial_performance",
+            "market_reaction"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "company_developments",
+            "expert_analysis",
+            "financial_performance",
+            "market_reaction"
+          ],
+          "alternate_urls": [],
+          "metadata_conflicts": {},
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple earnings: John Ternus faces first test amid high memory costs",
+          "url": "https://www.cnbc.com/2026/11/03/apple-earnings-john-ternus-faces-first-test-amid-high-memory-costs.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 12:00:01 GMT",
+          "content": "In response, Apple has drastically increased its purchase obligations to secure supply, Khan said. Those obligations rose by $33 billion from the June quarter to the September period, Khan said, though he declined to answer questions about whether Apple had signed \"long-term agreements\" with memory makers.\n\n\"We're always working hard to improve supply,\" Khan said. [...] Apple reported better-than-expected earnings and revenue on Monday, including in the company's core iPhone unit, and even projected sales in the current period that topped estimates. But just before Ternus opened the earnings call up to analysts' questions, CFO Kevan Parekh came forward with the first real piece of bad news. [...] Despite its size and global clout, Apple said it expects supply constraints on iPhones and Macs in the holiday quarter, primarily driven by memory.\n\nOn the call, Ternus had some top lieutenants field component-related questions. Sabih Khan, chief operating officer, became the first Apple COO to appear on an earnings call since Cook in 2010, when Steve Jobs was CEO.\n\n\"As we have said before, we're seeing less flexibility in the supply chain than normal,\" Khan told analysts on the call.",
+          "relevance_score": 0.1087274,
+          "category": "company_developments",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "company_developments",
+            "expert_analysis",
+            "financial_performance",
+            "market_reaction"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "company_developments",
+            "financial_performance"
+          ],
+          "alternate_urls": [],
+          "metadata_conflicts": {},
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple heads into the holidays with record revenue, growing market share, and a wave of new products",
+          "url": "https://www.cnbc.com/video/2026/11/03/apple-heads-into-the-holidays-with-record-revenue-growing-market-share-and-a-wave-of-new-products.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 20:42:19 GMT",
+          "content": "Apple heads into the holidays with record revenue, growing market share, and a wave of new products\n\nCNBC's MacKenzie Sigalos reports as Apple shares begin to pare losses, with a strong holiday outlook, growing hardware market share, and plans to expand Siri AI.",
+          "relevance_score": 0.100869976,
+          "category": "company_developments",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "market_reaction",
+            "expert_analysis",
+            "company_developments"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "company_developments"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple warns of AI agents behave in 'unintended or unpredictable' ways",
+          "url": "https://www.cnbc.com/2026/11/03/apple-warns-of-ai-agents-behave-in-unintended-or-unpredictable-ways.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 20:10:41 GMT",
+          "content": "Separately, the ability of agents to use a computer in human ways is forcing big companies like Amazon and JPMorgan Chase to come up with policies around agentic access to services for strategic or security reasons.\n\nLast month, Apple announced changes to full disk access on Macs to reduce \"risks related to this level of access\" for AI agents installed on PCs. [...] \"The Company's ability to oversee and control third-party artificial intelligence agents and other technologies may be limited,\" Apple warned in its filing.\n\nApple doesn't currently have an agentic AI. But when new CEO John Ternus was asked on Monday's earnings call about AI agents, he said that the company had \"real room\" to expand Siri's capabilities. [...] Earlier this year, OpenAI released Dots, and Meta introduced Muse. Both AI agents use advanced AI models to work autonomously for tasks. They can even email or remind users when new messages arrive.\n\nApple's disclosure comes after several episodes that involved rogue AI agents breaking out of their sandboxes to hack third-party websites, like the Hugging Face incident, which has drawn renewed attention from policymakers in Washington, D.C., and around the world.",
+          "relevance_score": 0.090582706,
+          "category": "company_developments",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "company_developments"
+          ],
+          "is_relevant": true,
+          "evidence_type": "reported_fact",
+          "evidence_basis": "Reported financial information detected.",
+          "is_forecast": false,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "company_developments"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple is 'the mack daddy of tech companies,' says Humilis Investment's Brian Belski",
+          "url": "https://www.cnbc.com/video/2026/11/02/apple-is-the-mack-daddy-of-tech-companies-says-humilis-investments-brian-belski.html",
+          "source": "cnbc.com",
+          "published_at": "Mon, 02 Nov 2026 20:17:40 GMT",
+          "content": "Apple is 'the mack daddy of tech companies,' says Humilis Investment's Brian Belski\n\nYorkville Ives’ Dan Ives, Malcolm Ethridge, Managing Partner at Capital Area Planning Group, and Brian Belski, founder, CEO and chief investment officer at Humilis Investment Strategies, join 'Closing Bell' to discuss Apple and Palantir earnings.",
+          "relevance_score": 0.085962325,
+          "category": "company_developments",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "company_developments",
+            "financial_performance"
+          ],
+          "is_relevant": true,
+          "evidence_type": "reported_fact",
+          "evidence_basis": "Reported financial information detected.",
+          "is_forecast": false,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "company_developments"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple Earnings by the Numbers",
+          "url": "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-11-02-2026/card/apple-earnings-by-the-numbers-sBoUkneMmstOTbSZnKrJ",
+          "source": "wsj.com",
+          "published_at": "Sun, 01 Nov 2026 22:00:00 GMT",
+          "content": "21 hours ago\n\n# Apple Earnings by the Numbers\n\nThe Apple growth machine is wavering, but price increases enabled the company to come in just ahead of Wall Street’s expectations in its September quarter.\n\nRevenue grew 12% in the September quarter, slightly ahead of Wall Street’s expectations.\n\nThe widely tracked gross profit margin, at 47.9%, also came in just ahead of analyst estimates. [...] The company's net income came in at $30.71 billion, beating analyst estimates compiled by FactSet of $30.38 billion.",
+          "relevance_score": 0.6977124,
+          "category": "financial_performance",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "expert_analysis"
+          ],
+          "is_relevant": true,
+          "evidence_type": "analyst_opinion",
+          "evidence_basis": "Analyst or brokerage-related statement detected.",
+          "is_forecast": false,
+          "requires_verification": false,
+          "publisher_name": "Wall Street Journal",
+          "source_domain": "wsj.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "financial_performance"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple's quarter is not perfect. But with enough to like, we raised our price target",
+          "url": "https://www.cnbc.com/investingclub/2026/11/02/apples-quarter-is-not-perfect-but-with-enough-to-like-we-raised-our-price-target.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 00:55:36 GMT",
+          "content": "it can monetize. Company-wide gross margin came in at the high end of management's outlook, improving 70 basis points year over year to 47.9%. That beat the consensus forecast of 47.5%. The result included a favorable impact of 1 percentage point from tariff refunds. Excluding the tariff refund, gross margins would have been down one percentage point sequentially, primary due to higher memory costs. By unit , Products gross margin improved 100 basis points year over year to 37.2%, beating the [...] needed to report a picture-perfect quarter with a strong outlook to avoid profit-taking. Unfortunately, that did not happen. However, Apple's quarterly results were strong, with revenue, gross margin upside, and Services about in line. The figures were enough to keep the stock unchanged for most of the evening. However, when management provided guidance for the current quarter, the stock fell about 3% in after-hours trading due to downside in gross margins and Services revenue growth relative [...] of $152.12 billion. That was the good news. The bad news was that the high-margin Services revenue growth is expected to slow down again. The company guided Services revenue growth to 8% to 9%, below the Street estimate of 10%. This works out to a guide of $32.56 billion versus the consensus estimate of $33 billion. The combination of a higher mix of hardware sales (lower margin) with the ongoing memory price increase are probably the reasons why the gross margin guide was light. The company",
+          "relevance_score": 0.5248093,
+          "category": "financial_performance",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "company_developments",
+            "expert_analysis",
+            "financial_performance",
+            "market_reaction"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "financial_performance",
+            "market_reaction"
+          ],
+          "alternate_urls": [],
+          "metadata_conflicts": {},
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple forecasts margin drop in holiday quarter as rising memory costs bite | Reuters",
+          "url": "https://www.reuters.com/business/retail-consumer/apple-results-beat-wall-street-expectations-on-strong-iphone-sales-2026-11-02",
+          "source": "reuters.com",
+          "published_at": "Tue, 03 Nov 2026 04:40:22 GMT",
+          "content": "Apple said it expects gross margin of 45% to 46% in the quarter ending in December, down from 47.9% in the fourth quarter. It forecast services revenue growth of 8% to 9%, below analysts' expectations of 10.7%. [...] Mac sales were $10.79 billion, above estimates of $9.61 billion. Services revenue was $31.57 billion, in line with estimates of $31.58 billion. iPad and wearables sales were $6.23 billion and $8.30 billion, both below estimates. Chinese sales were $17.54 billion, ​below the $18.58 billion analysts estimated, according to Visible Alpha data. [...] Apple in recent weeks has grappled with customer reports of cracked screens on the iPhone Duo, its first foldable phone, which sold out within hours online and spurred lines at stores last ​month.\n\nFiscal fourth-quarter sales were $114.48 billion, above analyst estimates of $113.39 billion, according to LSEG data. Profit was $2.10 per share, above estimates of $1.99 even when excluding 5 cents from tariff refunds.\n\n## IPHONE DUO SUPPLY CONSTRAINTS",
+          "relevance_score": 0.477238,
+          "category": "financial_performance",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "expert_analysis"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "Reuters",
+          "source_domain": "reuters.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "financial_performance"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Stock futures fall as investors weigh Apple earnings; U.S. midterm elections loom: Live updates - CNBC",
+          "url": "https://www.cnbc.com/2026/11/02/stock-market-today-live-updates.html",
+          "source": "cnbc.com",
+          "published_at": "Mon, 02 Nov 2026 23:09:32 GMT",
+          "content": "S&P 500 futures traded lower early on Tuesday as investors mulled over Apple's quarterly earnings report and awaited U.S. midterm elections. Dow Jones Industrial Average futures were down 0.46%, while S&P 500 futures fell 0.14%. Apple shares were down 2% in extended trading after the consumer tech giant rolled out a disappointing margin forecast and iPad sales in the fiscal fourth quarter missed the Street's estimates. In the regular U.S. session, the tech-heavy Nasdaq Composite dipped 1.07%, while the S&P 500 fell 0.51% as investors continued their rotation out of tech stocks. Oracle shares also fell 8% after the company said it plans to sell $10 billion in common stock and $10 billion in bonds to help finance its artificial intelligence build-out. A sweep of the House and Senate by Democrats could spark a sell-off for artificial intelligence stocks, according to JPMorgan. Apple — Apple shares were down 2% in extended trading after the consumer tech giant rolled out a disappointing margin forecast and iPad sales in the fiscal fourth quarter missed the Street's estimates.",
+          "relevance_score": 0.36148077,
+          "category": "market_reaction",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "market_reaction",
+            "expert_analysis"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "market_reaction"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "'Fast Money' traders react to Apple Q4 results - CNBC",
+          "url": "https://www.cnbc.com/video/2026/11/02/fast-money-traders-react-to-apple-q4-results.html",
+          "source": "cnbc.com",
+          "published_at": "Mon, 02 Nov 2026 22:25:38 GMT",
+          "content": "'Fast Money' traders react to Apple Q4 results. The 'Fast Money' traders react to Apple quarterly results. Apple beats on revenue in John Ternus' first quarter as CEO. Mondelez CEO Dirk Van de Put: Snacking is 'clearly strong' in emerging markets like India and Brazil. Applied Digital CEO Wes Cummins on Elon Musk’s 'guppy-level death' prediction for 200-plus neoclouds. Anthropic reports $17 billion in Q3 revenue, purchase commitments of $895.4 billion in revised S-1. Anthropic releases amended IPO prospectus with third-quarter financials.",
+          "relevance_score": 0.2999765,
+          "category": "market_reaction",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "market_reaction"
+          ],
+          "is_relevant": true,
+          "evidence_type": "reported_fact",
+          "evidence_basis": "Reported financial information detected.",
+          "is_forecast": false,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "market_reaction"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Morning Bid: Markets hope for relief in Apple margins - Reuters",
+          "url": "https://www.reuters.com/world/china/global-markets-view-europe-2026-11-02/",
+          "source": "reuters.com",
+          "published_at": "Mon, 02 Nov 2026 05:51:03 GMT",
+          "content": "A look at the day ahead in European and global markets from Wayne Cole. ​It could be investors are hoping for some earnings relief from Apple (AAPL.O) later today given ‌it isn't spending mountains of cash on data centres. Apple's shares have been something of ​a haven of stability having risen for four straight months and are up 27% so far this year, ​pushing its valuation past $5 trillion. More challenging for the mood will be results from AMD (AMD.O) later in the week given it slid almost 11% last Friday as Intel INTC.O shed 28% on a disappointing outlook. The US midterms are an added wrinkle as ​a Democratic win could result in more political opposition to data centres and calls for controls on ​AI in general. There are also plenty of reports the US has been telling allies in the Middle East to expect a renewed strike on Iran once the midterms ​are over.",
+          "relevance_score": 0.21373838,
+          "category": "market_reaction",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "expert_analysis",
+            "financial_performance",
+            "market_reaction"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "Reuters",
+          "source_domain": "reuters.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "expert_analysis",
+            "market_reaction"
+          ],
+          "alternate_urls": [],
+          "metadata_conflicts": {},
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple's valuation looks stretched before earnings, says MoffettNathanson's Craig Moffett - CNBC",
+          "url": "https://www.cnbc.com/video/2026/10/30/apples-valuation-looks-stretched-before-earnings-says-moffettnathansons-craig-moffett.html",
+          "source": "cnbc.com",
+          "published_at": "Fri, 30 Oct 2026 21:39:31 GMT",
+          "content": "Apple's valuation looks stretched before earnings, says MoffettNathanson's Craig Moffett. Craig Moffett, MoffettNathanson co-founder and senior analyst, joins 'Closing Bell Overtime' to talk the state of the tech trade and what to expect from Apple. CFTC Chair Michael Selig on Utah-Kalshi suit: We'll take it all the way to the Supreme Court. Twilio CEO Khozema Shipchandler: The need for AI agent infrastructure will provide tailwinds for us. Elon Musk sees the election as a 'crusade' and is all in on the Republicans, says Walter Isaacson. ExxonMobil CEO Darren Woods: We are producing record volumes of diesel in North America. Hackers steal $6B+ from Binance in what is likely biggest crypto heist of all time.",
+          "relevance_score": 0.42462727,
+          "category": "expert_analysis",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "market_reaction",
+            "expert_analysis"
+          ],
+          "is_relevant": true,
+          "evidence_type": "analyst_opinion",
+          "evidence_basis": "Analyst or brokerage-related statement detected.",
+          "is_forecast": false,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "expert_analysis"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple's shares remain attractive over the next 12 months, says Neuberger's Flax - CNBC",
+          "url": "https://www.cnbc.com/video/2026/11/03/apple-shares-remain-attractive-over-the-next-12-months-says-analyst.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 03:26:33 GMT",
+          "content": "Apple's shares remain attractive over the next 12 months, says Neuberger's Flax. Neuberger's Daniel Flax shares his outlook for Apple following the company's first earnings call under CEO John Ternus. He remains bullish on the stock, saying Apple's memory chip challenges are not \"insurmountable\".",
+          "relevance_score": 0.3320293,
+          "category": "expert_analysis",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "market_reaction",
+            "expert_analysis"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "expert_analysis"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Bank of America forecasts a much weaker December quarter for Apple - CNBC",
+          "url": "https://www.cnbc.com/video/2026/10/30/bank-of-america-forecasts-a-much-weaker-december-quarter-for-apple.html",
+          "source": "cnbc.com",
+          "published_at": "Fri, 30 Oct 2026 22:30:16 GMT",
+          "content": "Bank of America forecasts a much weaker December quarter for Apple. CNBC’s MacKenzie Sigalos reports on Bank of America’s bearish December-quarter forecast, rising memory-chip costs, and what investors are watching in Apple’s first earnings report under John Ternus.",
+          "relevance_score": 0.2488448,
+          "category": "expert_analysis",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "expert_analysis"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "expert_analysis"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        }
+      ],
+      "market_reaction": [
+        {
+          "headline": "Apple earnings beat, but margin outlook weighs on stock",
+          "url": "https://www.cnbc.com/2026/11/03/apple-earnings-analysts-margin-outlook.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 11:59:53 GMT",
+          "content": "Apple issued an underwhelming profits outlook and disclosed some soft sales trends during its latest quarterly report, but Wall Street analysts still see a lot to like about the stock. The iPhone maker posted earnings of $2.10 per share for the fiscal fourth quarter, topping the $1.99 expected by analysts polled by LSEG. Revenue came in at $114.48 billion, well above the $113.39 billion anticipated by the Street. iPhone sales — a major revenue driver for Apple — came in at $57.58 billion to [...] its new forecast still points to a 23% decline. \"We are most concerned about the trends in Services. Recall in the June quarter, App Store was not mentioned as one of the top three revenue contributors for only the third time in the last decade. We believe there is pressure from regulatory changes in the EU and the US related to link out transactions.\" Bank of America: Buy, $370 \"Despite supply constraints impacting iPhone, iPad and Macs, Apple delivered a strong F4Q26 with iPhone revs growing [...] $57.58 billion to exceed analysts' $56.54 billion consensus estimate. However, iPad and other product sales trailed expectations. The company also underwhelmed the Street with its gross margin forecast for the current quarter. That figure sits between 45% and 46%, below the Street's average estimate of 46.3%. Shares of Apple slid about 4% in premarket trading, underscoring investors' disappointment with the company's outlook and lagging sales across some product types. AAPL YTD mountain Apple",
+          "relevance_score": 0.10884103,
+          "category": "company_developments",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "company_developments",
+            "expert_analysis",
+            "financial_performance",
+            "market_reaction"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "company_developments",
+            "expert_analysis",
+            "financial_performance",
+            "market_reaction"
+          ],
+          "alternate_urls": [],
+          "metadata_conflicts": {},
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple earnings: John Ternus faces first test amid high memory costs",
+          "url": "https://www.cnbc.com/2026/11/03/apple-earnings-john-ternus-faces-first-test-amid-high-memory-costs.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 12:00:01 GMT",
+          "content": "In response, Apple has drastically increased its purchase obligations to secure supply, Khan said. Those obligations rose by $33 billion from the June quarter to the September period, Khan said, though he declined to answer questions about whether Apple had signed \"long-term agreements\" with memory makers.\n\n\"We're always working hard to improve supply,\" Khan said. [...] Apple reported better-than-expected earnings and revenue on Monday, including in the company's core iPhone unit, and even projected sales in the current period that topped estimates. But just before Ternus opened the earnings call up to analysts' questions, CFO Kevan Parekh came forward with the first real piece of bad news. [...] Despite its size and global clout, Apple said it expects supply constraints on iPhones and Macs in the holiday quarter, primarily driven by memory.\n\nOn the call, Ternus had some top lieutenants field component-related questions. Sabih Khan, chief operating officer, became the first Apple COO to appear on an earnings call since Cook in 2010, when Steve Jobs was CEO.\n\n\"As we have said before, we're seeing less flexibility in the supply chain than normal,\" Khan told analysts on the call.",
+          "relevance_score": 0.1087274,
+          "category": "company_developments",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "company_developments",
+            "expert_analysis",
+            "financial_performance",
+            "market_reaction"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "company_developments",
+            "financial_performance"
+          ],
+          "alternate_urls": [],
+          "metadata_conflicts": {},
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple heads into the holidays with record revenue, growing market share, and a wave of new products",
+          "url": "https://www.cnbc.com/video/2026/11/03/apple-heads-into-the-holidays-with-record-revenue-growing-market-share-and-a-wave-of-new-products.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 20:42:19 GMT",
+          "content": "Apple heads into the holidays with record revenue, growing market share, and a wave of new products\n\nCNBC's MacKenzie Sigalos reports as Apple shares begin to pare losses, with a strong holiday outlook, growing hardware market share, and plans to expand Siri AI.",
+          "relevance_score": 0.100869976,
+          "category": "company_developments",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "market_reaction",
+            "expert_analysis",
+            "company_developments"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "company_developments"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple's quarter is not perfect. But with enough to like, we raised our price target",
+          "url": "https://www.cnbc.com/investingclub/2026/11/02/apples-quarter-is-not-perfect-but-with-enough-to-like-we-raised-our-price-target.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 00:55:36 GMT",
+          "content": "it can monetize. Company-wide gross margin came in at the high end of management's outlook, improving 70 basis points year over year to 47.9%. That beat the consensus forecast of 47.5%. The result included a favorable impact of 1 percentage point from tariff refunds. Excluding the tariff refund, gross margins would have been down one percentage point sequentially, primary due to higher memory costs. By unit , Products gross margin improved 100 basis points year over year to 37.2%, beating the [...] needed to report a picture-perfect quarter with a strong outlook to avoid profit-taking. Unfortunately, that did not happen. However, Apple's quarterly results were strong, with revenue, gross margin upside, and Services about in line. The figures were enough to keep the stock unchanged for most of the evening. However, when management provided guidance for the current quarter, the stock fell about 3% in after-hours trading due to downside in gross margins and Services revenue growth relative [...] of $152.12 billion. That was the good news. The bad news was that the high-margin Services revenue growth is expected to slow down again. The company guided Services revenue growth to 8% to 9%, below the Street estimate of 10%. This works out to a guide of $32.56 billion versus the consensus estimate of $33 billion. The combination of a higher mix of hardware sales (lower margin) with the ongoing memory price increase are probably the reasons why the gross margin guide was light. The company",
+          "relevance_score": 0.5248093,
+          "category": "financial_performance",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "company_developments",
+            "expert_analysis",
+            "financial_performance",
+            "market_reaction"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "financial_performance",
+            "market_reaction"
+          ],
+          "alternate_urls": [],
+          "metadata_conflicts": {},
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Stock futures fall as investors weigh Apple earnings; U.S. midterm elections loom: Live updates - CNBC",
+          "url": "https://www.cnbc.com/2026/11/02/stock-market-today-live-updates.html",
+          "source": "cnbc.com",
+          "published_at": "Mon, 02 Nov 2026 23:09:32 GMT",
+          "content": "S&P 500 futures traded lower early on Tuesday as investors mulled over Apple's quarterly earnings report and awaited U.S. midterm elections. Dow Jones Industrial Average futures were down 0.46%, while S&P 500 futures fell 0.14%. Apple shares were down 2% in extended trading after the consumer tech giant rolled out a disappointing margin forecast and iPad sales in the fiscal fourth quarter missed the Street's estimates. In the regular U.S. session, the tech-heavy Nasdaq Composite dipped 1.07%, while the S&P 500 fell 0.51% as investors continued their rotation out of tech stocks. Oracle shares also fell 8% after the company said it plans to sell $10 billion in common stock and $10 billion in bonds to help finance its artificial intelligence build-out. A sweep of the House and Senate by Democrats could spark a sell-off for artificial intelligence stocks, according to JPMorgan. Apple — Apple shares were down 2% in extended trading after the consumer tech giant rolled out a disappointing margin forecast and iPad sales in the fiscal fourth quarter missed the Street's estimates.",
+          "relevance_score": 0.36148077,
+          "category": "market_reaction",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "market_reaction",
+            "expert_analysis"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "market_reaction"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "'Fast Money' traders react to Apple Q4 results - CNBC",
+          "url": "https://www.cnbc.com/video/2026/11/02/fast-money-traders-react-to-apple-q4-results.html",
+          "source": "cnbc.com",
+          "published_at": "Mon, 02 Nov 2026 22:25:38 GMT",
+          "content": "'Fast Money' traders react to Apple Q4 results. The 'Fast Money' traders react to Apple quarterly results. Apple beats on revenue in John Ternus' first quarter as CEO. Mondelez CEO Dirk Van de Put: Snacking is 'clearly strong' in emerging markets like India and Brazil. Applied Digital CEO Wes Cummins on Elon Musk’s 'guppy-level death' prediction for 200-plus neoclouds. Anthropic reports $17 billion in Q3 revenue, purchase commitments of $895.4 billion in revised S-1. Anthropic releases amended IPO prospectus with third-quarter financials.",
+          "relevance_score": 0.2999765,
+          "category": "market_reaction",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "market_reaction"
+          ],
+          "is_relevant": true,
+          "evidence_type": "reported_fact",
+          "evidence_basis": "Reported financial information detected.",
+          "is_forecast": false,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "market_reaction"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Morning Bid: Markets hope for relief in Apple margins - Reuters",
+          "url": "https://www.reuters.com/world/china/global-markets-view-europe-2026-11-02/",
+          "source": "reuters.com",
+          "published_at": "Mon, 02 Nov 2026 05:51:03 GMT",
+          "content": "A look at the day ahead in European and global markets from Wayne Cole. ​It could be investors are hoping for some earnings relief from Apple (AAPL.O) later today given ‌it isn't spending mountains of cash on data centres. Apple's shares have been something of ​a haven of stability having risen for four straight months and are up 27% so far this year, ​pushing its valuation past $5 trillion. More challenging for the mood will be results from AMD (AMD.O) later in the week given it slid almost 11% last Friday as Intel INTC.O shed 28% on a disappointing outlook. The US midterms are an added wrinkle as ​a Democratic win could result in more political opposition to data centres and calls for controls on ​AI in general. There are also plenty of reports the US has been telling allies in the Middle East to expect a renewed strike on Iran once the midterms ​are over.",
+          "relevance_score": 0.21373838,
+          "category": "market_reaction",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "expert_analysis",
+            "financial_performance",
+            "market_reaction"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "Reuters",
+          "source_domain": "reuters.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "expert_analysis",
+            "market_reaction"
+          ],
+          "alternate_urls": [],
+          "metadata_conflicts": {},
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple's valuation looks stretched before earnings, says MoffettNathanson's Craig Moffett - CNBC",
+          "url": "https://www.cnbc.com/video/2026/10/30/apples-valuation-looks-stretched-before-earnings-says-moffettnathansons-craig-moffett.html",
+          "source": "cnbc.com",
+          "published_at": "Fri, 30 Oct 2026 21:39:31 GMT",
+          "content": "Apple's valuation looks stretched before earnings, says MoffettNathanson's Craig Moffett. Craig Moffett, MoffettNathanson co-founder and senior analyst, joins 'Closing Bell Overtime' to talk the state of the tech trade and what to expect from Apple. CFTC Chair Michael Selig on Utah-Kalshi suit: We'll take it all the way to the Supreme Court. Twilio CEO Khozema Shipchandler: The need for AI agent infrastructure will provide tailwinds for us. Elon Musk sees the election as a 'crusade' and is all in on the Republicans, says Walter Isaacson. ExxonMobil CEO Darren Woods: We are producing record volumes of diesel in North America. Hackers steal $6B+ from Binance in what is likely biggest crypto heist of all time.",
+          "relevance_score": 0.42462727,
+          "category": "expert_analysis",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "market_reaction",
+            "expert_analysis"
+          ],
+          "is_relevant": true,
+          "evidence_type": "analyst_opinion",
+          "evidence_basis": "Analyst or brokerage-related statement detected.",
+          "is_forecast": false,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "expert_analysis"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple's shares remain attractive over the next 12 months, says Neuberger's Flax - CNBC",
+          "url": "https://www.cnbc.com/video/2026/11/03/apple-shares-remain-attractive-over-the-next-12-months-says-analyst.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 03:26:33 GMT",
+          "content": "Apple's shares remain attractive over the next 12 months, says Neuberger's Flax. Neuberger's Daniel Flax shares his outlook for Apple following the company's first earnings call under CEO John Ternus. He remains bullish on the stock, saying Apple's memory chip challenges are not \"insurmountable\".",
+          "relevance_score": 0.3320293,
+          "category": "expert_analysis",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "market_reaction",
+            "expert_analysis"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "expert_analysis"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        }
+      ],
+      "expert_analysis": [
+        {
+          "headline": "Apple earnings beat, but margin outlook weighs on stock",
+          "url": "https://www.cnbc.com/2026/11/03/apple-earnings-analysts-margin-outlook.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 11:59:53 GMT",
+          "content": "Apple issued an underwhelming profits outlook and disclosed some soft sales trends during its latest quarterly report, but Wall Street analysts still see a lot to like about the stock. The iPhone maker posted earnings of $2.10 per share for the fiscal fourth quarter, topping the $1.99 expected by analysts polled by LSEG. Revenue came in at $114.48 billion, well above the $113.39 billion anticipated by the Street. iPhone sales — a major revenue driver for Apple — came in at $57.58 billion to [...] its new forecast still points to a 23% decline. \"We are most concerned about the trends in Services. Recall in the June quarter, App Store was not mentioned as one of the top three revenue contributors for only the third time in the last decade. We believe there is pressure from regulatory changes in the EU and the US related to link out transactions.\" Bank of America: Buy, $370 \"Despite supply constraints impacting iPhone, iPad and Macs, Apple delivered a strong F4Q26 with iPhone revs growing [...] $57.58 billion to exceed analysts' $56.54 billion consensus estimate. However, iPad and other product sales trailed expectations. The company also underwhelmed the Street with its gross margin forecast for the current quarter. That figure sits between 45% and 46%, below the Street's average estimate of 46.3%. Shares of Apple slid about 4% in premarket trading, underscoring investors' disappointment with the company's outlook and lagging sales across some product types. AAPL YTD mountain Apple",
+          "relevance_score": 0.10884103,
+          "category": "company_developments",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "company_developments",
+            "expert_analysis",
+            "financial_performance",
+            "market_reaction"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "company_developments",
+            "expert_analysis",
+            "financial_performance",
+            "market_reaction"
+          ],
+          "alternate_urls": [],
+          "metadata_conflicts": {},
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple earnings: John Ternus faces first test amid high memory costs",
+          "url": "https://www.cnbc.com/2026/11/03/apple-earnings-john-ternus-faces-first-test-amid-high-memory-costs.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 12:00:01 GMT",
+          "content": "In response, Apple has drastically increased its purchase obligations to secure supply, Khan said. Those obligations rose by $33 billion from the June quarter to the September period, Khan said, though he declined to answer questions about whether Apple had signed \"long-term agreements\" with memory makers.\n\n\"We're always working hard to improve supply,\" Khan said. [...] Apple reported better-than-expected earnings and revenue on Monday, including in the company's core iPhone unit, and even projected sales in the current period that topped estimates. But just before Ternus opened the earnings call up to analysts' questions, CFO Kevan Parekh came forward with the first real piece of bad news. [...] Despite its size and global clout, Apple said it expects supply constraints on iPhones and Macs in the holiday quarter, primarily driven by memory.\n\nOn the call, Ternus had some top lieutenants field component-related questions. Sabih Khan, chief operating officer, became the first Apple COO to appear on an earnings call since Cook in 2010, when Steve Jobs was CEO.\n\n\"As we have said before, we're seeing less flexibility in the supply chain than normal,\" Khan told analysts on the call.",
+          "relevance_score": 0.1087274,
+          "category": "company_developments",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "company_developments",
+            "expert_analysis",
+            "financial_performance",
+            "market_reaction"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "company_developments",
+            "financial_performance"
+          ],
+          "alternate_urls": [],
+          "metadata_conflicts": {},
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple heads into the holidays with record revenue, growing market share, and a wave of new products",
+          "url": "https://www.cnbc.com/video/2026/11/03/apple-heads-into-the-holidays-with-record-revenue-growing-market-share-and-a-wave-of-new-products.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 20:42:19 GMT",
+          "content": "Apple heads into the holidays with record revenue, growing market share, and a wave of new products\n\nCNBC's MacKenzie Sigalos reports as Apple shares begin to pare losses, with a strong holiday outlook, growing hardware market share, and plans to expand Siri AI.",
+          "relevance_score": 0.100869976,
+          "category": "company_developments",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "market_reaction",
+            "expert_analysis",
+            "company_developments"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "company_developments"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple Earnings by the Numbers",
+          "url": "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-11-02-2026/card/apple-earnings-by-the-numbers-sBoUkneMmstOTbSZnKrJ",
+          "source": "wsj.com",
+          "published_at": "Sun, 01 Nov 2026 22:00:00 GMT",
+          "content": "21 hours ago\n\n# Apple Earnings by the Numbers\n\nThe Apple growth machine is wavering, but price increases enabled the company to come in just ahead of Wall Street’s expectations in its September quarter.\n\nRevenue grew 12% in the September quarter, slightly ahead of Wall Street’s expectations.\n\nThe widely tracked gross profit margin, at 47.9%, also came in just ahead of analyst estimates. [...] The company's net income came in at $30.71 billion, beating analyst estimates compiled by FactSet of $30.38 billion.",
+          "relevance_score": 0.6977124,
+          "category": "financial_performance",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "expert_analysis"
+          ],
+          "is_relevant": true,
+          "evidence_type": "analyst_opinion",
+          "evidence_basis": "Analyst or brokerage-related statement detected.",
+          "is_forecast": false,
+          "requires_verification": false,
+          "publisher_name": "Wall Street Journal",
+          "source_domain": "wsj.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "financial_performance"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple's quarter is not perfect. But with enough to like, we raised our price target",
+          "url": "https://www.cnbc.com/investingclub/2026/11/02/apples-quarter-is-not-perfect-but-with-enough-to-like-we-raised-our-price-target.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 00:55:36 GMT",
+          "content": "it can monetize. Company-wide gross margin came in at the high end of management's outlook, improving 70 basis points year over year to 47.9%. That beat the consensus forecast of 47.5%. The result included a favorable impact of 1 percentage point from tariff refunds. Excluding the tariff refund, gross margins would have been down one percentage point sequentially, primary due to higher memory costs. By unit , Products gross margin improved 100 basis points year over year to 37.2%, beating the [...] needed to report a picture-perfect quarter with a strong outlook to avoid profit-taking. Unfortunately, that did not happen. However, Apple's quarterly results were strong, with revenue, gross margin upside, and Services about in line. The figures were enough to keep the stock unchanged for most of the evening. However, when management provided guidance for the current quarter, the stock fell about 3% in after-hours trading due to downside in gross margins and Services revenue growth relative [...] of $152.12 billion. That was the good news. The bad news was that the high-margin Services revenue growth is expected to slow down again. The company guided Services revenue growth to 8% to 9%, below the Street estimate of 10%. This works out to a guide of $32.56 billion versus the consensus estimate of $33 billion. The combination of a higher mix of hardware sales (lower margin) with the ongoing memory price increase are probably the reasons why the gross margin guide was light. The company",
+          "relevance_score": 0.5248093,
+          "category": "financial_performance",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "company_developments",
+            "expert_analysis",
+            "financial_performance",
+            "market_reaction"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "financial_performance",
+            "market_reaction"
+          ],
+          "alternate_urls": [],
+          "metadata_conflicts": {},
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple forecasts margin drop in holiday quarter as rising memory costs bite | Reuters",
+          "url": "https://www.reuters.com/business/retail-consumer/apple-results-beat-wall-street-expectations-on-strong-iphone-sales-2026-11-02",
+          "source": "reuters.com",
+          "published_at": "Tue, 03 Nov 2026 04:40:22 GMT",
+          "content": "Apple said it expects gross margin of 45% to 46% in the quarter ending in December, down from 47.9% in the fourth quarter. It forecast services revenue growth of 8% to 9%, below analysts' expectations of 10.7%. [...] Mac sales were $10.79 billion, above estimates of $9.61 billion. Services revenue was $31.57 billion, in line with estimates of $31.58 billion. iPad and wearables sales were $6.23 billion and $8.30 billion, both below estimates. Chinese sales were $17.54 billion, ​below the $18.58 billion analysts estimated, according to Visible Alpha data. [...] Apple in recent weeks has grappled with customer reports of cracked screens on the iPhone Duo, its first foldable phone, which sold out within hours online and spurred lines at stores last ​month.\n\nFiscal fourth-quarter sales were $114.48 billion, above analyst estimates of $113.39 billion, according to LSEG data. Profit was $2.10 per share, above estimates of $1.99 even when excluding 5 cents from tariff refunds.\n\n## IPHONE DUO SUPPLY CONSTRAINTS",
+          "relevance_score": 0.477238,
+          "category": "financial_performance",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "expert_analysis"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "Reuters",
+          "source_domain": "reuters.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "financial_performance"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Stock futures fall as investors weigh Apple earnings; U.S. midterm elections loom: Live updates - CNBC",
+          "url": "https://www.cnbc.com/2026/11/02/stock-market-today-live-updates.html",
+          "source": "cnbc.com",
+          "published_at": "Mon, 02 Nov 2026 23:09:32 GMT",
+          "content": "S&P 500 futures traded lower early on Tuesday as investors mulled over Apple's quarterly earnings report and awaited U.S. midterm elections. Dow Jones Industrial Average futures were down 0.46%, while S&P 500 futures fell 0.14%. Apple shares were down 2% in extended trading after the consumer tech giant rolled out a disappointing margin forecast and iPad sales in the fiscal fourth quarter missed the Street's estimates. In the regular U.S. session, the tech-heavy Nasdaq Composite dipped 1.07%, while the S&P 500 fell 0.51% as investors continued their rotation out of tech stocks. Oracle shares also fell 8% after the company said it plans to sell $10 billion in common stock and $10 billion in bonds to help finance its artificial intelligence build-out. A sweep of the House and Senate by Democrats could spark a sell-off for artificial intelligence stocks, according to JPMorgan. Apple — Apple shares were down 2% in extended trading after the consumer tech giant rolled out a disappointing margin forecast and iPad sales in the fiscal fourth quarter missed the Street's estimates.",
+          "relevance_score": 0.36148077,
+          "category": "market_reaction",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "market_reaction",
+            "expert_analysis"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "market_reaction"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Morning Bid: Markets hope for relief in Apple margins - Reuters",
+          "url": "https://www.reuters.com/world/china/global-markets-view-europe-2026-11-02/",
+          "source": "reuters.com",
+          "published_at": "Mon, 02 Nov 2026 05:51:03 GMT",
+          "content": "A look at the day ahead in European and global markets from Wayne Cole. ​It could be investors are hoping for some earnings relief from Apple (AAPL.O) later today given ‌it isn't spending mountains of cash on data centres. Apple's shares have been something of ​a haven of stability having risen for four straight months and are up 27% so far this year, ​pushing its valuation past $5 trillion. More challenging for the mood will be results from AMD (AMD.O) later in the week given it slid almost 11% last Friday as Intel INTC.O shed 28% on a disappointing outlook. The US midterms are an added wrinkle as ​a Democratic win could result in more political opposition to data centres and calls for controls on ​AI in general. There are also plenty of reports the US has been telling allies in the Middle East to expect a renewed strike on Iran once the midterms ​are over.",
+          "relevance_score": 0.21373838,
+          "category": "market_reaction",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "expert_analysis",
+            "financial_performance",
+            "market_reaction"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "Reuters",
+          "source_domain": "reuters.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "expert_analysis",
+            "market_reaction"
+          ],
+          "alternate_urls": [],
+          "metadata_conflicts": {},
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple's valuation looks stretched before earnings, says MoffettNathanson's Craig Moffett - CNBC",
+          "url": "https://www.cnbc.com/video/2026/10/30/apples-valuation-looks-stretched-before-earnings-says-moffettnathansons-craig-moffett.html",
+          "source": "cnbc.com",
+          "published_at": "Fri, 30 Oct 2026 21:39:31 GMT",
+          "content": "Apple's valuation looks stretched before earnings, says MoffettNathanson's Craig Moffett. Craig Moffett, MoffettNathanson co-founder and senior analyst, joins 'Closing Bell Overtime' to talk the state of the tech trade and what to expect from Apple. CFTC Chair Michael Selig on Utah-Kalshi suit: We'll take it all the way to the Supreme Court. Twilio CEO Khozema Shipchandler: The need for AI agent infrastructure will provide tailwinds for us. Elon Musk sees the election as a 'crusade' and is all in on the Republicans, says Walter Isaacson. ExxonMobil CEO Darren Woods: We are producing record volumes of diesel in North America. Hackers steal $6B+ from Binance in what is likely biggest crypto heist of all time.",
+          "relevance_score": 0.42462727,
+          "category": "expert_analysis",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "market_reaction",
+            "expert_analysis"
+          ],
+          "is_relevant": true,
+          "evidence_type": "analyst_opinion",
+          "evidence_basis": "Analyst or brokerage-related statement detected.",
+          "is_forecast": false,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "expert_analysis"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Apple's shares remain attractive over the next 12 months, says Neuberger's Flax - CNBC",
+          "url": "https://www.cnbc.com/video/2026/11/03/apple-shares-remain-attractive-over-the-next-12-months-says-analyst.html",
+          "source": "cnbc.com",
+          "published_at": "Tue, 03 Nov 2026 03:26:33 GMT",
+          "content": "Apple's shares remain attractive over the next 12 months, says Neuberger's Flax. Neuberger's Daniel Flax shares his outlook for Apple following the company's first earnings call under CEO John Ternus. He remains bullish on the stock, saying Apple's memory chip challenges are not \"insurmountable\".",
+          "relevance_score": 0.3320293,
+          "category": "expert_analysis",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "market_reaction",
+            "expert_analysis"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "expert_analysis"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        },
+        {
+          "headline": "Bank of America forecasts a much weaker December quarter for Apple - CNBC",
+          "url": "https://www.cnbc.com/video/2026/10/30/bank-of-america-forecasts-a-much-weaker-december-quarter-for-apple.html",
+          "source": "cnbc.com",
+          "published_at": "Fri, 30 Oct 2026 22:30:16 GMT",
+          "content": "Bank of America forecasts a much weaker December quarter for Apple. CNBC’s MacKenzie Sigalos reports on Bank of America’s bearish December-quarter forecast, rising memory-chip costs, and what investors are watching in Apple’s first earnings report under John Ternus.",
+          "relevance_score": 0.2488448,
+          "category": "expert_analysis",
+          "retrieval_tier": "curated",
+          "company_relevance": "direct",
+          "matched_categories": [
+            "financial_performance",
+            "expert_analysis"
+          ],
+          "is_relevant": true,
+          "evidence_type": "forecast",
+          "evidence_basis": "Forward-looking statement detected.",
+          "is_forecast": true,
+          "requires_verification": false,
+          "publisher_name": "CNBC",
+          "source_domain": "cnbc.com",
+          "source_type": "financial_news",
+          "source_verified": true,
+          "is_primary_source": false,
+          "retrieval_tiers": [
+            "curated"
+          ],
+          "retrieval_categories": [
+            "expert_analysis"
+          ],
+          "alternate_urls": [],
+          "evidence_status": "metadata_complete",
+          "evidence_issues": [],
+          "freshness_status": "fresh",
+          "claims_independently_verified": false,
+          "duplicate": false,
+          "duplicate_reasons": []
+        }
+      ]
+    },
+    "evidence_summary": {
+      "evidence_type_counts": {
+        "primary_source_statement": 0,
+        "reported_fact": 3,
+        "analyst_opinion": 2,
+        "forecast": 9,
+        "unverified_claim": 0
+      },
+      "verification_required_count": 0,
+      "claims_independently_verified": false
+    },
+    "source_quality": {
+      "primary_source_count": 0,
+      "secondary_source_count": 14,
+      "verified_publisher_count": 14,
+      "unknown_source_count": 0
+    },
+    "limitations": [],
+    "rejected_articles": [],
+    "search_errors": [],
+    "verification_note": "Metadata completeness does not establish the truth of an article's claims."
+  },
+  "key_strengths": [
+    "Strong profit margin (~27.6%) indicating efficient cost management",
+    "Robust operating margin (~33%) showing healthy core earnings",
+    "High return on assets (~32.7%) reflecting effective asset utilization",
+    "Very high return on equity (~118%) suggesting strong equity returns (additional leverage analysis needed)",
+    "Significant free cash flow (~$136 billion) providing financial flexibility",
+    "Revenue grew from $391 billion (2024) to $479 billion (2026)",
+    "Net income increased from $93.7 billion (2024) to $132.2 billion (2026)",
+    "Operating cash flow rose from $118.3 billion (2024) to $145.1 billion (2026)"
+  ],
+  "key_concerns": [
+    "Extremely high ROE may be influenced by the relatively low equity base; detailed leverage analysis is required",
+    "Capital expenditure of $9.0 billion (negative cash flow) indicates ongoing investment whose future cash‑flow impact is uncertain",
+    "Debt information is limited to total debt ($2.0 billion) without breakdown of short‑term vs long‑term or interest expense",
+    "Lack of liquidity metrics (cash, current assets) prevents assessment of short‑term solvency"
+  ],
+  "risks_and_limitations": [
+    "No data on interest expense, tax rate, or earnings per share",
+    "Missing number of shares outstanding, market capitalization, and dividend information",
+    "Only three annual reporting periods are provided, limiting ability to confirm long‑term trends",
+    "Absence of detailed liability composition and debt maturity schedule",
+    "Capital expenditure is shown only as a cash‑flow line item, not as a separate expense figure"
+  ],
+  "overall_summary": "Financial analysis: Apple Inc. (ticker AAPL) reported in USD, sourced from Financial Modeling Prep, a profit margin of 27.6% and operating margin of 33%, indicating strong profitability. Returns are high with ROA at 32.7% and ROE at 118%, though the latter warrants further leverage analysis. Free cash flow stands at $136 billion, supporting financial flexibility. Over the three reported years, revenue rose from $391 billion to $479 billion, net income grew from $93.7 billion to $132.2 billion, and operating cash flow increased from $118.3 billion to $145.1 billion, showing positive historical momentum. Strengths include robust margins, strong returns, ample free cash flow, and consistent growth. Concerns relate to the unusually high ROE, limited debt detail, and ongoing capital expenditures. Data limitations prevent a full assessment of leverage, liquidity, and long‑term trend stability. News highlights: Apple earnings beat, but margin outlook weighs on stock; Apple earnings: John Ternus faces first test amid high memory costs; Apple heads into the holidays with record revenue, growing market share, and a wave of new products",
+  "recommendation": "NOT_ASSESSED"
+}

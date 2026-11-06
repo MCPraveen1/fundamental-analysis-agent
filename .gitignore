@@ -72,7 +72,8 @@ temp/
 # ==============================
 # Generated reports and local data
 # ==============================
-reports/*
+reports/*.pdf
+reports/*.log
 !reports/.gitkeep
 data/cache/
 cache/

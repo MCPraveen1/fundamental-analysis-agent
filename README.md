@@ -8,12 +8,13 @@ The project is developed incrementally with a focus on modular architecture, tra
 
 The goal is to make company financial information and relevant market developments easier to examine through a coordinated set of agents and tools.
 
-The project currently has two complementary analysis paths:
+The application brings together three specialist capabilities:
 
 1. **Financial data analysis** retrieves and normalizes company financial information from market-specific providers.
-2. **Financial intelligence analysis** discovers relevant financial news, assesses source provenance and evidence type, and builds a structured report from the retrieved articles.
+2. **Live price analysis** retrieves the latest available market price through the configured data provider.
+3. **Financial intelligence analysis** discovers relevant financial news, assesses source provenance and evidence type, and builds a structured report from retrieved articles.
 
-These paths provide inputs for broader fundamental analysis. News provenance and evidence classification help explain the quality and limitations of retrieved information; they do not independently prove that an article's claims are factually correct.
+The `InvestmentOrchestrator` coordinates these agents and compiles their outputs into a structured `InvestmentMemo`. The application does not automatically assign a buy, hold, or sell recommendation; the current memo recommendation is `NOT_ASSESSED`.
 
 ## ✨ Current Capabilities
 
@@ -25,6 +26,12 @@ These paths provide inputs for broader fundamental analysis. News provenance and
 - **Financial statements:** Retrieves available income statement, balance sheet, and cash flow information.
 - **Historical data:** Supports selected financial metrics across reporting periods.
 - **LLM-powered interpretation:** Uses Groq for narrative analysis based on retrieved financial information.
+
+### Live price analysis
+
+- Retrieves the latest available price through the stock data provider.
+- Includes the price, currency, and data-source context in the analysis output.
+- Availability and freshness depend on the underlying provider.
 
 ### Financial Intelligence news pipeline
 
@@ -47,6 +54,39 @@ These paths provide inputs for broader fundamental analysis. News provenance and
 - News analysis alone does not establish a buy, hold, or sell recommendation.
 
 ## 🏗️ Architecture
+
+The `InvestmentOrchestrator` coordinates the specialist agents and compiles their results into an investment memo.
+
+```text
+                         Stock Ticker
+                              |
+                              v
+                   InvestmentOrchestrator
+                     /        |        \
+                    /         |         \
+                   v          v          v
+          Financial Data   Live Price   Verified News
+              Agent          Agent         Agent
+                |              |             |
+                v              v             v
+          Financial data   Latest price   Financial
+          and analysis     and currency   Intelligence
+                                             |
+                                             v
+                                      Report Builder
+                    \              |             /
+                     \             |            /
+                      v            v           v
+                         Investment Memo
+                  - Financial analysis
+                  - Price analysis
+                  - News analysis
+                  - Financial intelligence report
+                  - Strengths and concerns
+                  - Risks and limitations
+                  - Overall summary
+                  - Recommendation status
+```
 
 The financial intelligence news path is organized as a deterministic pipeline:
 
@@ -89,17 +129,110 @@ Structured Report + Limitations
 
 The report builder is deterministic: it organizes the metadata and article results supplied by the news pipeline. It does not invent article summaries, financial metrics, or investment recommendations.
 
+## 🖥️ API and Docker Implementation
+
+The project exposes its investment analysis workflow through a FastAPI application and can be run inside a Docker container.
+
+### FastAPI endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/health` | Checks API availability |
+| POST | `/analyse` | Returns a structured investment analysis in JSON |
+| POST | `/analyse/pdf` | Generates and returns an investment analysis PDF |
+
+Interactive API documentation is available through Swagger UI at `/docs`.
+
+### FastAPI documentation
+
+![FastAPI Swagger UI](docs/images/02-fastapi-swagger-overview.png)
+
+### Stock analysis request and JSON response
+
+The `/analyse` endpoint accepts a stock ticker, such as `AAPL` or `RELIANCE.NS`, and returns the structured analysis.
+
+![Analysis endpoint request](docs/images/03-analyse-endpoint-request.png)
+
+![JSON analysis response](docs/images/04-analyse-json-response.png)
+
+### PDF investment report
+
+The `/analyse/pdf` endpoint generates a downloadable PDF investment report.
+
+![PDF analysis response](docs/images/05-analyse-pdf-response.png)
+
+### Request and response schemas
+
+The API uses Pydantic models to validate incoming requests and structure its responses.
+
+![Analysis request schema](docs/images/06-analysis-request-schema.png)
+
+![Expanded analysis request schema](docs/images/07-analysis-request-schema-expanded.png)
+
+![API response models](docs/images/08-api-response-models.png)
+
+### Docker implementation
+
+The application is containerized using Docker with Python 3.12 and Uvicorn. The container exposes port `8000` and starts the FastAPI application.
+
+![Docker container running](docs/images/01-docker-container-running.png)
+
+Build the Docker image:
+
+```powershell
+docker build -t fundamental-analysis-agent .
+```
+
+Run the container:
+
+```powershell
+docker run --env-file .env -p 8000:8000 fundamental-analysis-agent
+```
+
+Access the API documentation at:
+
+`http://localhost:8000/docs`
+
+API credentials must be supplied through environment variables. The `.env` file should never be committed to GitHub or copied into the Docker image.
+
+## 📁 Sample Outputs
+
+The repository includes sample outputs generated by the Fundamental Analysis Agent, demonstrating analysis across both US and Indian equity markets.
+
+| Sample | Company | Market | Format |
+|---|---|---|---|
+| [Sample JSON Analysis](examples/sample_analysis.json) | Apple Inc. (`AAPL`) | US | JSON |
+| [Sample PDF Investment Report](examples/sample_investment_report.pdf) | Reliance Industries Limited (`RELIANCE.NS`) | India | PDF |
+
+**Sample details:**
+- Apple analysis: USD
+- Reliance Industries analysis: INR
+- Reliance PDF generated: 04 November 2026
+
+These files demonstrate the application's structured analysis and PDF reporting capabilities across different market data providers. They are illustrative outputs, not live market data or investment advice. Financial information may become outdated.
+
 ## 🧩 Project Structure
 
 ```text
 fundamental-analysis-agent/
 ├── agents/
 │   ├── financial_data_agent.py
+│   ├── investment_orchestrator.py
+│   ├── investment_memo_schema.py
+│   ├── live_price_agent.py
 │   ├── report_evaluator.py
 │   ├── report_schema.py
 │   └── verified_news_agent.py
+├── api/
+│   ├── main.py
+│   └── schemas.py
 ├── config/
 │   └── news_sources.yaml
+├── docs/
+│   └── images/
+├── examples/
+│   ├── sample_analysis.json
+│   └── sample_investment_report.pdf
 ├── intelligence/
 │   ├── article_deduplicator.py
 │   ├── evidence_assessor.py
@@ -110,22 +243,20 @@ fundamental-analysis-agent/
 │   ├── retrieval_manager.py
 │   └── source_registry.py
 ├── reports/
+│   └── pdf_generator.py
 ├── tests/
-│   ├── test_evidence_assessor.py
-│   ├── test_financial_report_evaluation.py
-│   ├── test_report_builder.py
-│   ├── test_report_schema.py
-│   ├── test_retrieval_manager.py
-│   ├── test_source_registry.py
-│   └── test_verified_news_agent.py
 ├── tools/
 │   ├── financial_tools.py
 │   ├── fmp_tools.py
 │   ├── news_tools.py
 │   └── stock_data_router.py
+├── .dockerignore
 ├── .env.example
 ├── .gitignore
+├── Dockerfile
 ├── requirements.txt
+├── run_investment_memo.py
+├── test_pdf_generation.py
 └── README.md
 ```
 
@@ -134,6 +265,8 @@ This is a high-level view of the principal project modules; additional supportin
 ## 🛠️ Technology Stack
 
 - Python 3.12
+- FastAPI and Uvicorn
+- Docker
 - Groq API
 - Financial Modeling Prep API
 - Yahoo Finance through `yfinance`
@@ -141,6 +274,8 @@ This is a high-level view of the principal project modules; additional supportin
 - Requests
 - PyYAML
 - python-dotenv
+- Pydantic
+- ReportLab
 - Pytest
 
 ## ⚙️ Setup and Installation
@@ -166,37 +301,62 @@ Activate it in PowerShell:
 
 ### 3. Install dependencies
 
-```bash
+```powershell
 python -m pip install -r requirements.txt
 ```
 
 ### 4. Configure environment variables
 
-Create a `.env` file in the project root using `.env.example` as a template. Add the credentials required by the providers you intend to use:
+Create a `.env` file in the project root using `.env.example` as a template. Add the credentials required by the providers and features you intend to use:
 
 ```text
 GROQ_API_KEY=your_groq_api_key
+GROQ_MODEL=your_groq_model
 FMP_API_KEY=your_fmp_api_key
+TAVILY_API_KEY=your_tavily_api_key
 ```
+
+Not every analysis path requires every provider credential. Configure the credentials needed for the functionality you intend to run.
 
 **Security:** Never commit `.env` or publish API keys to GitHub. Keep credentials in environment variables and use only the provider access required for your tests or analysis.
 
-## ▶️ Running and Testing
+## ▶️ Running the Application
 
-The existing financial data entry points can be run with:
+### Run the FastAPI application locally
+
+From the project root:
 
 ```powershell
-python -m agents.financial_data_agent
-python -m tools.stock_data_router
+uvicorn api.main:app --reload
 ```
 
-Run the complete test suite from the repository root:
+Open the interactive API documentation:
+
+`http://127.0.0.1:8000/docs`
+
+### Run the investment memo CLI
+
+```powershell
+python run_investment_memo.py
+```
+
+### Run the PDF generation test script
+
+```powershell
+python test_pdf_generation.py
+```
+
+This script performs an analysis and generates a PDF report. It requires the relevant API credentials and provider access.
+
+## 🧪 Testing
+
+Run the test suite from the repository root:
 
 ```powershell
 python -m pytest -v
 ```
 
-The current development test suite contains **159 passing tests**. Test results may change as the project evolves.
+The test suite covers the financial analysis components, news intelligence pipeline, report evaluation, and supporting functionality. Test totals can change as the project evolves; run the command above for the current result.
 
 ## 🧪 Example Stock Symbols
 
@@ -230,8 +390,10 @@ The structured report retains search errors, rejected results, incomplete metada
 - [x] Add article relevance classification, deduplication, and evidence assessment
 - [x] Integrate the intelligence pipeline into VerifiedNewsAgent
 - [x] Build structured financial intelligence reports
-- [x] Add tests for the current pipeline and report evaluation
-- [ ] Connect the financial intelligence report into the wider investment orchestration flow
+- [x] Integrate specialist agents through the InvestmentOrchestrator
+- [x] Expose analysis through FastAPI JSON and PDF endpoints
+- [x] Containerize the application with Docker
+- [x] Add sample JSON and PDF outputs
 - [ ] Expand official company investor-relations source coverage
 - [ ] Add independent claim-verification mechanisms
 - [ ] Expand end-to-end integration and provider failure testing
